@@ -9,17 +9,21 @@ export default defineAppConfig({
   twitterCard: "summary_large_image",
   links: [
     {
-      label: 'Docs',
-      to: '/docs'
+      label: 'Bridge',
+      to: '/bridge'
     },
     {
-      label: 'Pricing',
-      to: '/pricing'
+      label: 'Trade',
+      to: '/trade'
     },
     {
       label: 'Blog',
       to: '/blog'
-    }
+    },
+    // {
+    //   label: 'Docs',
+    //   to: '/docs'
+    // }
   ],
   ui: {
     primary: 'sky',
