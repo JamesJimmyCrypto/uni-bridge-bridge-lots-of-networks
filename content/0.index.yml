@@ -6,19 +6,19 @@ hero:
     label: Crafting by HelloRWA Team
     to: https://RWA-Wallet.com/ixo
     icon: i-heroicons-arrow-top-right-on-square-20-solid
-  # links:
-  #   - label: Get started
-  #     to: "/signup"
-  #     size: xl
-  #     color: black
-  #     icon: i-heroicons-arrow-right-20-solid
-  #     trailing: true
-  #   - label: Use this template
-  #     icon: i-simple-icons-github
-  #     size: xl
-  #     color: gray
-  #     to: https://github.com/nuxt-ui-pro/saas
-  #     target: _blank
+  links:
+    - label: Stake stETH now
+      to: "/stake"
+      size: xl
+      color: green
+      icon: i-heroicons-arrow-right-20-solid
+      trailing: true
+    # - label: Use this template
+    #   icon: i-simple-icons-github
+    #   size: xl
+    #   color: gray
+    #   to: https://github.com/nuxt-ui-pro/saas
+    #   target: _blank
 # sections:
 #   - title: The power of our service
 #     description: Aliqua labore laboris fugiat. Reprehenderit exercitation eu commodo. Officia nostrud sit et aliqua ea ex sunt minim incididunt sunt.

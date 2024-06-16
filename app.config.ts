@@ -9,6 +9,10 @@ export default defineAppConfig({
   twitterCard: "summary_large_image",
   links: [
     {
+      label: 'Stake',
+      to: '/stake'
+    },
+    {
       label: 'Bridge',
       to: '/bridge'
     },

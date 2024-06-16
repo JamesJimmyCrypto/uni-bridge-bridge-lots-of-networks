@@ -1,7 +1,5 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "landing",
-});
+definePageMeta({});
 
 const { data: page } = await useAsyncData("index", () => queryContent("/").findOne());
 if (!page.value) {
@@ -11,23 +9,26 @@ if (!page.value) {
 
 <template>
   <div v-if="page">
-    <ULandingHero :title="page.hero.title" :description="page.hero.description" :links="page.hero.links">
-      <div class="inset-0 z-[-1] absolute landing-grid [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" />
+    <UMain class="flex justify-center items-center">
+      <!-- TODO: add the thress js effect to bg: https://threejs.org/examples/#webgl_interactive_cubes_ortho -->
+      <ULandingHero :title="page.hero.title" :description="page.hero.description" :links="page.hero.links">
+        <div class="inset-0 z-[-1] absolute landing-grid [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" />
 
-      <template #headline>
-        <UBadge v-if="page.hero.headline" variant="subtle" size="lg" class="rounded-full font-semibold relative">
-          <NuxtLink :to="page.hero.headline.to" target="_blank" class="focus:outline-none" tabindex="-1">
-            <span class="inset-0 absolute" aria-hidden="true" />
-          </NuxtLink>
+        <template #headline>
+          <UBadge v-if="page.hero.headline" variant="subtle" size="lg" class="rounded-full font-semibold relative">
+            <NuxtLink :to="page.hero.headline.to" target="_blank" class="focus:outline-none" tabindex="-1">
+              <span class="inset-0 absolute" aria-hidden="true" />
+            </NuxtLink>
 
-          {{ page.hero.headline.label }}
+            {{ page.hero.headline.label }}
 
-          <UIcon v-if="page.hero.headline.icon" :name="page.hero.headline.icon" class="h-4 ml-1 w-4 pointer-events-none" />
-        </UBadge>
-      </template>
-    </ULandingHero>
+            <UIcon v-if="page.hero.headline.icon" :name="page.hero.headline.icon" class="h-4 ml-1 w-4 pointer-events-none" />
+          </UBadge>
+        </template>
+      </ULandingHero>
+    </UMain>
 
-    <ULandingSection class="!pt-0">
+    <ULandingSection class="!pt-0" v-if="false">
       <Placeholder />
     </ULandingSection>
 
