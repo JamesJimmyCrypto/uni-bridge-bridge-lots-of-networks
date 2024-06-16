@@ -24,10 +24,10 @@ export default defineAppConfig({
       label: 'Blog',
       to: '/blog'
     },
-    {
-      label: 'About',
-      to: '/about'
-    },
+    // {
+    //   label: 'About',
+    //   to: '/about'
+    // },
     // {
     //   label: 'Docs',
     //   to: '/docs'

@@ -1,5 +1,7 @@
 <script setup lang="ts">
-definePageMeta({});
+definePageMeta({
+  colorMode: "dark",
+});
 
 const { data: page } = await useAsyncData("index", () => queryContent("/").findOne());
 if (!page.value) {
@@ -10,10 +12,9 @@ if (!page.value) {
 <template>
   <div v-if="page">
     <UMain class="flex justify-center items-center">
+      <div class="inset-0 animate-pulse z-[-1] absolute landing-grid [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" />
       <!-- TODO: add the thress js effect to bg: https://threejs.org/examples/#webgl_interactive_cubes_ortho -->
       <ULandingHero :description="page.hero.description" :links="page.hero.links">
-        <div class="inset-0 z-[-1] absolute landing-grid [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" />
-
         <template #title> <span class="text-rainbow animate-pulse">UNI Bridge</span> for All BlockChains </template>
         <template #headline>
           <UBadge v-if="page.hero.headline" variant="subtle" size="lg" class="rounded-full font-semibold animate-bounce relative">
@@ -73,13 +74,13 @@ if (!page.value) {
 <style scoped>
 .landing-grid {
   background-size: 100px 100px;
-  background-image: linear-gradient(to right, rgb(var(--color-gray-200)) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(var(--color-gray-200)) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgb(var(--color-gray-500)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-gray-500)) 1px, transparent 1px);
 }
 .dark {
   .landing-grid {
-    background-image: linear-gradient(to right, rgb(var(--color-gray-800)) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(var(--color-gray-800)) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgb(var(--color-gray-500)) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--color-gray-500)) 1px, transparent 1px);
   }
 }
 </style>
