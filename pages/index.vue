@@ -11,11 +11,12 @@ if (!page.value) {
   <div v-if="page">
     <UMain class="flex justify-center items-center">
       <!-- TODO: add the thress js effect to bg: https://threejs.org/examples/#webgl_interactive_cubes_ortho -->
-      <ULandingHero :title="page.hero.title" :description="page.hero.description" :links="page.hero.links">
+      <ULandingHero :description="page.hero.description" :links="page.hero.links">
         <div class="inset-0 z-[-1] absolute landing-grid [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" />
 
+        <template #title> <span class="text-rainbow animate-pulse">UNI Bridge</span> for All BlockChains </template>
         <template #headline>
-          <UBadge v-if="page.hero.headline" variant="subtle" size="lg" class="rounded-full font-semibold relative">
+          <UBadge v-if="page.hero.headline" variant="subtle" size="lg" class="rounded-full font-semibold animate-bounce relative">
             <NuxtLink :to="page.hero.headline.to" target="_blank" class="focus:outline-none" tabindex="-1">
               <span class="inset-0 absolute" aria-hidden="true" />
             </NuxtLink>

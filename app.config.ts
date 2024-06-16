@@ -1,7 +1,7 @@
 const title =  'UNI Bridge'
 export default defineAppConfig({
   title,
-  titleBadge: 'Beta',
+  titleBadge: 'AO',
   titleTemplate: `%s - ${title}`,
   description: 'UNI Bridge for All BlockChains',
   ogImage: "https://dashboard-template.nuxt.dev/social-card.png",

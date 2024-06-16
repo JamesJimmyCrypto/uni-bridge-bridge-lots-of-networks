@@ -8,7 +8,11 @@ const appConfig = useAppConfig();
 
 <template>
   <UHeader :links="appConfig.links">
-    <template #logo>{{ appConfig.title }} <UBadge :label="appConfig.titleBadge" variant="subtle" class="mb-0.5" /> </template>
+    <template #logo>
+      <div class="flex text-rainbow animate-pulse text-2xl justify-center items-center">
+        {{ appConfig.title }} <UBadge :label="appConfig.titleBadge" variant="subtle" class="mb-0.5 ml-2" />
+      </div>
+    </template>
 
     <template #right>
       <!-- <UButton label="Sign in" color="gray" to="/login" />
