@@ -12,7 +12,7 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@web3-fullstack/layer-saas": "*",
+    "@web3-fullstack/layer-saas": "0.0.8",
     "date-fns": "^3.6.0"
   }
 }

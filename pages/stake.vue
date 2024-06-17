@@ -30,6 +30,8 @@ const buttonMap = $computed(() => {
     2: { label: "Stake", color: "white" },
   };
 });
+
+const stakeS1Time = "2024-07-01T00:00Z";
 </script>
 
 <template>
@@ -41,6 +43,10 @@ const buttonMap = $computed(() => {
     </UPageHero>
 
     <UContainer>
+      <div class="pb-20">
+        <CountDown :end-time="stakeS1Time" />
+      </div>
+
       <UPricingGrid>
         <UPricingCard
           v-for="(plan, index) in page.plans"
