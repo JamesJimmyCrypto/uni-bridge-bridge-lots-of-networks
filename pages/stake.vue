@@ -31,20 +31,25 @@ const buttonMap = $computed(() => {
   };
 });
 
-const stakeS1Time = "2024-07-01T00:00Z";
+const stakeS1Time = "2024-06-18T06:17Z";
+// const stakeS1Time = "2024-08-01T00:00Z";
 </script>
 
 <template>
   <div v-if="page">
     <UPageHero v-bind="page.hero" class="!py-40">
       <template #links>
-        <div class="max-w-2xl">Not just farm AO, but also farm the $UB of the uni-bridge platform.</div>
+        <div class="font-bold max-w-2xl">Not just farm AO, but also farm the $UB of the uni-bridge platform.</div>
       </template>
     </UPageHero>
 
     <UContainer>
-      <div class="pb-20">
-        <CountDown :end-time="stakeS1Time" />
+      <div class="space-y-5 mb-20">
+        <div class="font-bold text-center animate-bounce text-2xl">Stake S1 ended in</div>
+        <CountDown :end-time="stakeS1Time" class="text-rainbow" />
+        <p class="mx-auto max-w-xl text-xs text-center w-full text-gray-500">
+          After S1 ends, the $veUB mining speed of S2 will decrease. <br />So, participating in staking as earlier as you can!
+        </p>
       </div>
 
       <UPricingGrid>
