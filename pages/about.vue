@@ -9,12 +9,12 @@ const people = [
     role: "Founder / CEO / Solo Hacker",
     imageUrl: "/assets/avatar/stark-wwdc.png",
     bio: [
-      'Full Stack Hacker',
-      'Serial entrepreneur',
-      'Coding for almost 20 years',
-      'Build over 10+ MVP in Web3',
-      'Fan of JavaScript, VueJS, NuxtJs, TailwindCSS, Solidity, AO, Lua',
-      'Solo hacking and winning over 20 Web3 Hackathon track prizes',
+      "Full Stack Hacker",
+      "Serial entrepreneur",
+      "Coding for almost 20 years",
+      "Build over 10+ MVP in Web3",
+      "Fan of JavaScript, VueJS, NuxtJs, TailwindCSS, Solidity, AO, Lua",
+      "Solo hacking and winning over 20 Web3 Hackathon track prizes",
     ],
     xUrl: "https://x.com/StarkEVM99",
     linkedinUrl: "https://www.linkedin.com/in/starklai",
@@ -35,11 +35,11 @@ const people = [
           <div class="flex-auto max-w-xl">
             <h3 class="font-semibold text-lg text-white tracking-tight leading-8">{{ person.name }}</h3>
             <p class="text-base text-gray-300 leading-7">{{ person.role }}</p>
-            <p class="mt-6 text-base text-gray-400 leading-7">
+            <div class="mt-6 text-base text-gray-400 leading-7">
               <ul class="list-disc pl-4">
-                <li v-for="item in person.bio" :key="index">{{ item }}</li>
+                <li v-for="(item, index) in person.bio" :key="index">{{ item }}</li>
               </ul>
-            </p>
+            </div>
             <ul role="list" class="flex mt-6 gap-x-6">
               <li>
                 <a :href="person.xUrl" target="_blank" class="text-gray-400 hover:text-gray-500">
@@ -57,11 +57,13 @@ const people = [
           </div>
         </li>
         <li class="flex flex-col pt-12 gap-10 sm:flex-row">
-          <UIcon class="rounded-2xl h-52 w-52 "  name="i-noto-ninja-medium-skin-tone" alt="" />
+          <UIcon class="rounded-2xl h-52 w-52" name="i-noto-ninja-medium-skin-tone" alt="" />
           <div class="flex-auto max-w-xl">
             <h3 class="font-semibold text-lg text-white tracking-tight leading-8">Join Us</h3>
             <p class="mt-6 text-base text-gray-400 leading-7">
-              You must be passionate about Web3 with a tech background. You need to eat your dog's shit which is your responsibility to deliver your product and code also including making hacker growth with it. DM <a href="https://x.com/HelloRWA" target="_blank" class="text-primary"> @HelloRWA</a>.
+              You must be passionate about Web3 with a tech background. You need to eat your dog's shit which is your responsibility to deliver your
+              product and code also including making hacker growth with it. DM
+              <a href="https://x.com/HelloRWA" target="_blank" class="text-primary"> @HelloRWA</a>.
             </p>
             <ul role="list" class="flex mt-6 gap-x-6">
               <li>

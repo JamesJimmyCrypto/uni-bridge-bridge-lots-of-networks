@@ -75,7 +75,7 @@ const appConfig = useAppConfig();
 </script>
 
 <template>
-  <UFooter>
+  <UFooter :ui="{ wrapper: 'pt-20' }">
     <template #top v-if="appConfig.showFooterTop">
       <UFooterColumns :links="links">
         <template #right>
