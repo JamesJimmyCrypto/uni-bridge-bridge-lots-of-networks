@@ -31,8 +31,8 @@ const buttonMap = $computed(() => {
   };
 });
 
-const stakeS1Time = "2024-06-18T06:17Z";
-// const stakeS1Time = "2024-08-01T00:00Z";
+// const stakeS1Time = "2024-06-18T06:17Z";
+const stakeS1Time = "2024-08-01T00:00Z";
 </script>
 
 <template>

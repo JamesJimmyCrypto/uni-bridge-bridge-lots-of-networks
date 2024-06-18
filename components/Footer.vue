@@ -109,6 +109,7 @@ const appConfig = useAppConfig();
     <template #right>
       <!-- <UColorModeButton size="sm" /> -->
 
+      <UButton to="/awesome-ao" icon="i-material-symbols-auto-awesome" aria-label="AO Toolbox" color="gray" variant="ghost" />
       <UButton to="/toolbox" icon="i-material-symbols-light-service-toolbox-rounded" aria-label="AO Toolbox" color="gray" variant="ghost" />
       <UButton
         to="https://t.me/+ZpbsSCB5x4U4NTk1"

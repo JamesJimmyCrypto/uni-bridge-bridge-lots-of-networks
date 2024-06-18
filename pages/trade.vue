@@ -9,7 +9,7 @@ definePageMeta({
     <UContainer>
       <ULandingSection
         headline="Stay tuned, coming soon"
-        description="Trading your AO even before it is unlocked. Including perpetual swaps, earn $UB by trading and build the future of DeFi on AO."
+        description="Trading your AO even before it is unlocked. Including perpetual swap exchanges, earn $UB by trading and build the future of DeFi on AO."
       >
         <template #title> The <span class="text-rainbow animate-pulse uppercase"> PERPETUAL PROTOCOL </span> on AO</template>
       </ULandingSection>
