@@ -17,7 +17,7 @@ const appConfig = useAppConfig();
     <template #right>
       <!-- <UButton label="Sign in" color="gray" to="/login" />
       <UButton label="Sign up" icon="i-heroicons-arrow-right-20-solid" trailing color="black" to="/signup" class="hidden lg:flex" /> -->
-      <UButton to="https://twitter.com/HelloRWA" target="_blank" icon="i-simple-icons-twitter" aria-label="Twitter" color="gray" variant="ghost" />
+      <UButton to="https://twitter.com/HelloRWA" target="_blank" icon="i-ri-twitter-x-line" aria-label="Twitter" color="gray" variant="ghost" />
     </template>
 
     <template #panel>

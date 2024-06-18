@@ -7,32 +7,30 @@ export default defineAppConfig({
   ogImage: "https://dashboard-template.nuxt.dev/social-card.png",
   twitterImage: "https://dashboard-template.nuxt.dev/social-card.png",
   twitterCard: "summary_large_image",
-  links: [
-    {
-      label: 'Stake',
-      to: '/stake'
-    },
-    {
-      label: 'Bridge',
-      to: '/bridge'
-    },
-    {
-      label: 'Trade',
-      to: '/trade'
-    },
-    {
-      label: 'Blog',
-      to: '/blog'
-    },
-    // {
-    //   label: 'About',
-    //   to: '/about'
-    // },
-    // {
-    //   label: 'Docs',
-    //   to: '/docs'
-    // }
-  ],
+  links: () => {
+    return  [
+      {
+        label: 'Stake',
+        to: '/stake'
+      },
+      {
+        label: 'Bridge',
+        to: '/bridge'
+      },
+      {
+        label: 'Trade',
+        to: '/trade'
+      },
+      {
+        label: 'Blog',
+        to: '/blog'
+      },
+      {
+        label: 'About',
+        to: '/about'
+      },
+    ]
+  },
   ui: {
     primary: 'sky',
     gray: 'cool',
