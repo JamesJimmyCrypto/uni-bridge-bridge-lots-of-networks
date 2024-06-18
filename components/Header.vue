@@ -19,9 +19,5 @@ const appConfig = useAppConfig();
       <UButton label="Sign up" icon="i-heroicons-arrow-right-20-solid" trailing color="black" to="/signup" class="hidden lg:flex" /> -->
       <UButton to="https://twitter.com/HelloRWA" target="_blank" icon="i-ri-twitter-x-line" aria-label="Twitter" color="gray" variant="ghost" />
     </template>
-
-    <template #panel>
-      <UNavigationTree :links="mapContentNavigation(navigation)" default-open />
-    </template>
   </UHeader>
 </template>

@@ -109,6 +109,15 @@ const appConfig = useAppConfig();
     <template #right>
       <!-- <UColorModeButton size="sm" /> -->
 
+      <UButton to="/toolbox" icon="i-material-symbols-light-service-toolbox-rounded" aria-label="AO Toolbox" color="gray" variant="ghost" />
+      <UButton
+        to="https://t.me/+ZpbsSCB5x4U4NTk1"
+        target="_blank"
+        icon="i-simple-icons-telegram"
+        aria-label="Telegram"
+        color="gray"
+        variant="ghost"
+      />
       <UButton to="https://github.com/HelloRWA" target="_blank" icon="i-simple-icons-github" aria-label="GitHub" color="gray" variant="ghost" />
     </template>
   </UFooter>

@@ -31,7 +31,7 @@ const people = [
       </ULandingSection>
       <ul role="list" class="divide-y space-y-12 divide-gray-200">
         <li v-for="person in people" :key="person.name" class="flex flex-col pt-12 gap-10 sm:flex-row">
-          <img class="flex-none object-cover rounded-2xl w-52 aspect-[4/5]" :src="person.imageUrl" alt="" />
+          <img class="flex-none object-cover rounded-2xl w-full aspect-[4/5] sm:w-52" :src="person.imageUrl" alt="" />
           <div class="flex-auto max-w-xl">
             <h3 class="font-semibold text-lg text-white tracking-tight leading-8">{{ person.name }}</h3>
             <p class="text-base text-gray-300 leading-7">{{ person.role }}</p>
@@ -57,7 +57,7 @@ const people = [
           </div>
         </li>
         <li class="flex flex-col pt-12 gap-10 sm:flex-row">
-          <UIcon class="rounded-2xl h-52 w-52" name="i-noto-ninja-medium-skin-tone" alt="" />
+          <UIcon class="h-full rounded-2xl w-full sm:(h-52 w-52) " name="i-noto-ninja-medium-skin-tone" alt="" />
           <div class="flex-auto max-w-xl">
             <h3 class="font-semibold text-lg text-white tracking-tight leading-8">Join Us</h3>
             <p class="mt-6 text-base text-gray-400 leading-7">
