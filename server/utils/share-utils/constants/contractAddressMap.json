@@ -1,0 +1,6 @@
+{
+  "hardhat": {
+    "UNIBridgeStaking": "0xc6eD496eaFAaCD3254adD3e62Cd3f1D87b8d89Ac",
+    "BSTEntropy": "0x268ab9C820c94c18Ac8293E2e239bf0AF1bd8f91"
+  }
+}
