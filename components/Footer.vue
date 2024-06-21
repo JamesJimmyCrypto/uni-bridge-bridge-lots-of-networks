@@ -120,6 +120,7 @@ const appConfig = useAppConfig();
         variant="ghost"
       />
       <UButton to="https://github.com/HelloRWA" target="_blank" icon="i-simple-icons-github" aria-label="GitHub" color="gray" variant="ghost" />
+      <UButton to="https://twitter.com/HelloRWA" target="_blank" icon="i-ri-twitter-x-line" aria-label="Twitter" color="gray" variant="ghost" />
     </template>
   </UFooter>
 </template>

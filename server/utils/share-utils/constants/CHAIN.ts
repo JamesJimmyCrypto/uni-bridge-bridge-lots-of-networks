@@ -1,13 +1,13 @@
 import _ from 'lodash'
 import contractAddressMap from './contractAddressMap.json'
 
-import DiamondLoupeFacet from './abis/DiamondLoupeFacet.json'
-import OwnershipFacet from './abis/OwnershipFacet.json'
+// import DiamondLoupeFacet from './abis/DiamondLoupeFacet.json'
+// import OwnershipFacet from './abis/OwnershipFacet.json'
 import UNIBridgeStaking from './abis/UNIBridgeStaking.json'
 
 const allABIJsons = {
-  DiamondLoupeFacet,
-  OwnershipFacet,
+  // DiamondLoupeFacet,
+  // OwnershipFacet,
 }
 const allABIs = {}
 _.map(allABIJsons, (val, key) => {

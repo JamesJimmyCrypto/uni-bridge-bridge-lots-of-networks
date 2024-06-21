@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type { NavItem } from "@nuxt/content/dist/runtime/types";
-
-const navigation = inject<Ref<NavItem[]>>("navigation", ref([]));
-
 const appConfig = useAppConfig();
+const { isLoading, doLogin, updateRedirectUrl } = $(authStore());
+onMounted(updateRedirectUrl);
 </script>
 
 <template>
@@ -15,9 +13,8 @@ const appConfig = useAppConfig();
     </template>
 
     <template #right>
-      <!-- <UButton label="Sign in" color="gray" to="/login" />
-      <UButton label="Sign up" icon="i-heroicons-arrow-right-20-solid" trailing color="black" to="/signup" class="hidden lg:flex" /> -->
-      <UButton to="https://twitter.com/HelloRWA" target="_blank" icon="i-ri-twitter-x-line" aria-label="Twitter" color="gray" variant="ghost" />
+      <UButton label="Auth with X" :loading="isLoading" color="gray" @click="doLogin('twitter')" />
+      <!-- <UButton label="Sign up" icon="i-heroicons-arrow-right-20-solid" trailing color="black" to="/signup" class="hidden lg:flex" /> -->
     </template>
   </UHeader>
 </template>

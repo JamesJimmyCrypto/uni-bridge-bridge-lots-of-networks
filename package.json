@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "@web3-fullstack/layer-saas": "0.0.8",
-    "date-fns": "^3.6.0"
+    "date-fns": "^3.6.0",
+    "nft.storage": "^7.1.1",
+    "siwe": "^2.3.2",
+    "viem": "^2.15.1"
   }
 }
