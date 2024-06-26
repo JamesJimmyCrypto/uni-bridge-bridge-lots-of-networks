@@ -21,8 +21,6 @@ defineOgImage({
   description: page.value.description,
 });
 
-const isYearly = ref(false);
-
 const buttonMap = $computed(() => {
   return {
     0: { label: "Stake", color: "white" },
@@ -48,9 +46,9 @@ const stakeS1Time = "2024-08-01T00:00Z";
 
     <UContainer>
       <div class="space-y-5 mb-20">
-        <div class="font-bold text-center text-primary animate-bounce text-2xl">Staking S1 ended in</div>
+        <div class="font-bold text-center text-primary animate-bounce text-2xl">Staking S1 closed in</div>
         <CountDown :end-time="stakeS1Time" class="text-rainbow" />
-        <p class="mx-auto max-w-xl text-xs text-center w-full text-gray-500">
+        <p class="mx-auto max-w-xl text-sm text-center w-full text-gray-500">
           After S1 ends, the $veUB mining speed of S2 will decrease. <br />So, participating in staking as earlier as you can!
         </p>
       </div>
@@ -61,7 +59,7 @@ const stakeS1Time = "2024-08-01T00:00Z";
           :key="index"
           v-bind="plan"
           :title="`Stake ${plan.price} stETH`"
-          :price="` ${plan.veAmount} $veUB`"
+          :price="` ${plan.veAmount} $veUB / Day`"
           :button="buttonMap[index]"
         />
       </UPricingGrid>
@@ -73,7 +71,7 @@ const stakeS1Time = "2024-08-01T00:00Z";
       </ULandingLogos>
     </ULandingSection>
 
-    <ULandingSection v-if="false" :title="page.faq.title" :description="page.faq.description" class="mt-20">
+    <ULandingSection v-if="true" :title="page.faq.title" :description="page.faq.description" class="mt-20">
       <ULandingFAQ :items="page.faq.items" multiple default-close class="mx-auto max-w-4xl" />
     </ULandingSection>
   </div>

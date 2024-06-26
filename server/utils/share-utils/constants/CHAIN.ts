@@ -8,6 +8,7 @@ import UNIBridgeStaking from './abis/UNIBridgeStaking.json'
 const allABIJsons = {
   // DiamondLoupeFacet,
   // OwnershipFacet,
+  UNIBridgeStaking,
 }
 const allABIs = {}
 _.map(allABIJsons, (val, key) => {

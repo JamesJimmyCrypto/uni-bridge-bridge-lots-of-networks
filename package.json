@@ -1,5 +1,5 @@
 {
-  "name": "template-layer-saas",
+  "name": "uni-bridge",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,7 +12,9 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "@web3-fullstack/layer-saas": "0.0.8",
+    "@dicebear/collection": "^9.0.1",
+    "@dicebear/core": "^9.0.1",
+    "@web3-fullstack/layer-saas": "0.0.9",
     "date-fns": "^3.6.0",
     "nft.storage": "^7.1.1",
     "siwe": "^2.3.2",

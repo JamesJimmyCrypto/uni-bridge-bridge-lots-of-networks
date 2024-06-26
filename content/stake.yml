@@ -8,7 +8,7 @@ plans:
   - title: Stake
     description:
     price: 0.1
-    veAmount: 100
+    veAmount: 1
     align: top
     button:
       label: Get Started
@@ -25,7 +25,7 @@ plans:
     scale: true
     align: top
     price: 1
-    veAmount: 1100
+    veAmount: 11
     button:
       label: Mint
       color: primary
@@ -36,7 +36,7 @@ plans:
       - More benefits...
   - title: Stake Max
     price: 100
-    veAmount: 120000
+    veAmount: 1200
     align: top
     button:
       label: Get Started
@@ -59,16 +59,12 @@ faq:
   title: Frequently asked questions
   description2: Culpa consectetur dolor pariatur commodo aliqua amet tempor nisi enim deserunt elit cillum.
   items:
-    - label: Is this a secure service?
-      content: Qui sunt nostrud aliquip reprehenderit enim proident veniam magna aliquip velit occaecat eiusmod nisi deserunt sunt.
+    - label: When the Farm started?
+      content: The AO farm started from 2024-08-01T00:00Z, then $veUB will unlocked at 2025-03-01T00:00Z.
       defaultOpen: true
-    - label: How can I cancel my subscription?
-      content: Consectetur irure Lorem nostrud adipisicing aliqua mollit Lorem sit officia magna eiusmod cupidatat.
-    - label: How does the free trial work?
-      content: Quis officia commodo magna eu qui aliquip duis.
-    - label: Can I switch plans later?
-      content: Dolore irure ullamco dolore eu occaecat magna eiusmod dolor aliqua culpa labore.
-    - label: Do you offer refunds?
-      content: Duis mollit nostrud voluptate mollit Lorem dolore commodo veniam incididunt eiusmod.
-    - label: Do you offer support?
-      content: Aliqua sit nisi consequat pariatur Lorem minim irure qui.
+    - label: Why I need $veUB?
+      content: Only $veUB holders ( must hold more than 100 $veUB) can use the ub.rwa-wallet.com platform's functions.
+    - label: How does the stake work?
+      content: User stake stETH here, UB get the staking reward, and staker farm the AO( After staking on the AO platform, you will start to get AO and then distribute it to the pledgers ) and $veUB.
+    - label: Can I withdraw stETH later?
+      content: Yes, after 100 days staking time end, you can withdraw or keep it for next round.
