@@ -11,12 +11,6 @@ export default defineNuxtConfig({
     preference: "dark",
     fallback: 'dark'
   },
-  build: {
-    transpile: ['@psf/bitcoincashjs-lib']
-  },
-  optimizeDeps: {
-    include: ['@swapkit/sdk > @psf/bitcoincashjs-lib']
-  },
   ssr: false,
   vite: {
     plugins: [
