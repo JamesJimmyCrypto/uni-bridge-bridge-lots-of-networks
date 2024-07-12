@@ -14,7 +14,7 @@ plans:
       label: Get Started
       color: white
     features:
-      - Farm AO
+      - Farm AO ( or other third part Token )
       - Use the bridge function
       - Use the trade function
       - Trade to farm $UB token
