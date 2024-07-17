@@ -14,17 +14,13 @@
   "dependencies": {
     "@dicebear/collection": "^9.0.1",
     "@dicebear/core": "^9.0.1",
-    "@psf/bitcoincashjs-lib": "link:/Users/stark/Desktop/2024-06/bitcoinjs-lib",
-    "@swapkit/sdk": "^1.1.0",
-    "@web3-fullstack/layer-saas": "0.0.9",
+    "@web3-fullstack/layer-saas": "0.0.10",
     "date-fns": "^3.6.0",
     "nft.storage": "^7.1.1",
     "siwe": "^2.3.2",
     "viem": "^2.15.1"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.3.7",
-    "@psf/bitcoincashjs-lib": "4.0.3",
-    "vite-plugin-node-polyfills": "^0.22.0"
+    "@nuxt/devtools": "^1.3.7"
   }
 }

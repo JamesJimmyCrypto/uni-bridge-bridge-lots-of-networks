@@ -26,6 +26,7 @@ const { userId } = $(supabaseStore());
         </template>
       </UPopover>
       <UButton v-else label="Connect Wallet" :loading="isLoading" color="gray" @click="doLogin('metamask')" />
+      <w3m-button />
       <UButton v-if="!userId" label="Auth with X" :loading="isLoading" color="gray" @click="doLogin('twitter')" />
     </template>
   </UHeader>

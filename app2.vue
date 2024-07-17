@@ -29,6 +29,8 @@ const meta = $computed(() => {
   };
 });
 useSeoMeta(meta);
+
+console.log("uni-bridge");
 </script>
 
 <template>
