@@ -1,11 +1,18 @@
 <script setup lang="ts">
+import { useStorage } from "@vueuse/core";
+
 definePageMeta({
   colorMode: "dark",
 });
+
+let isShowLanding = $(useStorage("bridge-show-landing", true));
+const hideLanding = () => {
+  isShowLanding = false;
+};
 </script>
 
 <template>
-  <UMain class="flex justify-center items-center">
+  <UMain class="flex justify-center items-top">
     <UContainer>
       <ULandingSection headline="Stay tuned, coming soon" description="From one chain to anyother chain, whatever, whereever you want.">
         <template #title> The <span class="text-rainbow animate-pulse uppercase">freedom</span> to moving your assets </template>
@@ -30,6 +37,7 @@ definePageMeta({
           description="ERC20, ERC721, ERC1155, any token, any NFT."
         />
       </ULandingGrid>
+      <BridgeForm class="pt-20" id="form" />
     </UContainer>
   </UMain>
 </template>

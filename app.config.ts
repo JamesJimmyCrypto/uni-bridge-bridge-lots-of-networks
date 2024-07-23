@@ -38,7 +38,7 @@ export default defineAppConfig({
       default: {
         openDelay: 500
       }
-    }
+    },
   },
   showFooterTop: false,
 })

@@ -4,9 +4,24 @@ export const swapKitAPIStore = defineStore("swapKitAPIStore", () => {
     "x-api-key": "26c88c10-0b01-4ef1-afe1-60c2435da704"
   }
   const getSupportedChains = async () => {
-    const { data } = $(await useGetRequest("https://api.thorswap.net/aggregator/chains", {}, headers));
-    return data;
+    // const { data, error } = $(await useGetRequest("https://api.thorswap.net/aggregator/chains", {}, headers));
+    // console.log(`====> data :`, data, error)
+    // return data;
+    return {
+      "ETH": "1",
+      "AVAX": "43114",
+      "THOR": "thorchain-mainnet-v1",
+      "BTC": "bitcoin",
+      "LTC": "litecoin",
+      "BNB": "Binance-Chain-Tigris",
+      "BSC": "56",
+      "BCH": "bitcoincash",
+      "GAIA": "cosmoshub-4",
+      "DOGE": "dogecoin"
+      }
   };
+
+  
 
   const getSupportedProviders = async () => {
     const { data } = $(await useGetRequest("https://api.thorswap.net/aggregator/providers/supportedProviders", {}, headers));

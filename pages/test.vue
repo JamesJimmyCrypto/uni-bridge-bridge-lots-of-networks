@@ -4,10 +4,10 @@ const { getSupportedChains, getSupportedProviders, getQuote } = $(swapKitAPIStor
 const rz = await getSupportedChains();
 const rz1 = await getSupportedProviders();
 
-const sellAsset = "ETH.ETH";
+const sellAsset = "BTC/BTC";
 const buyAsset = "BTC.BTC";
 const sellAmount = 0.01;
-const senderAddress = "0xd319905AFEa8401f1eb56fBFD0754853B6B79816"; // BTC_WALLET_ADDRESS;
+const senderAddress = "3Erb1kfcCZrfDAJGaWfxL6GcyhaU6jiTJ3"; // BTC_WALLET_ADDRESS;
 const recipientAddress = "3Erb1kfcCZrfDAJGaWfxL6GcyhaU6jiTJ3"; // ETH_WALLET_ADDRESS;
 
 const quote = await getQuote(sellAsset, buyAsset, sellAmount, senderAddress, recipientAddress);
