@@ -9,4 +9,7 @@
   .flex-cc {
     @apply flex justify-center items-center;
   }
+  .flex-bc {
+    @apply flex justify-between items-center;
+  }
 }
