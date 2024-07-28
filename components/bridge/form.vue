@@ -103,6 +103,13 @@ const fromWalletAddress = $ref();
 const swapDirection = () => {
   // TOOD
 };
+
+const submitBtnTxt = $computed(() => {
+  return "Switch network";
+});
+const doSubmit = async () => {
+  console.log(`====> submitBtnTxt :`, submitBtnTxt);
+};
 </script>
 
 <template>
@@ -139,5 +146,6 @@ const swapDirection = () => {
         <div>Balance: 0.01233 ETH</div>
       </div>
     </div>
+    <UButton block size="xl" color="lime" @click="doSubmit">{{ submitBtnTxt }}</UButton>
   </div>
 </template>
