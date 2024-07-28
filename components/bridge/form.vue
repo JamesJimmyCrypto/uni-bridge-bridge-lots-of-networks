@@ -114,9 +114,9 @@ const swapDirection = () => {
         <BridgeInputMenu :items="fromWalletAppList" v-model="fromWalletApp" placeholder="Select wallet app" />
       </div>
       <UInputMenu v-model="fromWalletAddress" size="xl" :options="fromWalletAddressList" placeholder="Please select your wallet address" />
-      <div class="flex-bc">
-        <UInput class="flex-1" type="number" size="xl" v-model="amount" placeholder="Please input token amount"></UInput>
-        <BridgeInputMenu :items="fromTokenList" v-model="fromToken" size="xl" />
+      <div class="rounded-md flex-bc dark:bg-gray-900">
+        <UInput class="flex-auto" variant="none" type="number" size="xl" v-model="amount" placeholder="Please input token amount"></UInput>
+        <BridgeInputMenu variant="none" :items="fromTokenList" v-model="fromToken" size="xl" class="w-40" />
       </div>
 
       <div class="flex-bc px-3">
