@@ -1,0 +1,206 @@
+[
+  {
+    "ticker": "RUNE",
+    "identifier": "THOR.RUNE",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/thor.rune.png"
+  },
+  {
+    "ticker": "AVAX",
+    "identifier": "AVAX/AVAX",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/avax.png"
+  },
+  {
+    "ticker": "SOL",
+    "identifier": "AVAX/SOL-0xfe6b19286885a4f7f55adad09c3cd1f906d2478f",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/sol-0xfe6b19286885a4f7f55adad09c3cd1f906d2478f.png"
+  },
+  {
+    "ticker": "USDC",
+    "identifier": "AVAX/USDC-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e.png"
+  },
+  {
+    "ticker": "USDT",
+    "identifier": "AVAX/USDT-0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/usdt-0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png"
+  },
+  {
+    "ticker": "BCH",
+    "identifier": "BCH/BCH",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/bch/bch.png"
+  },
+  {
+    "ticker": "BNB",
+    "identifier": "BNB/BNB",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/bnb/bnb.png"
+  },
+  {
+    "ticker": "BTC",
+    "identifier": "BTC/BTC",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/btc/btc.png"
+  },
+  {
+    "ticker": "DOGE",
+    "identifier": "DOGE/DOGE",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/doge/doge.png"
+  },
+  {
+    "ticker": "AAVE",
+    "identifier": "ETH/AAVE-0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/aave-0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9.png"
+  },
+  {
+    "ticker": "DAI",
+    "identifier": "ETH/DAI-0x6b175474e89094c44da98b954eedeac495271d0f",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/dai-0x6b175474e89094c44da98b954eedeac495271d0f.png"
+  },
+  {
+    "ticker": "DPI",
+    "identifier": "ETH/DPI-0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/dpi-0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b.png"
+  },
+  {
+    "ticker": "ETH",
+    "identifier": "ETH/ETH",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/eth.png"
+  },
+  {
+    "ticker": "FLIP",
+    "identifier": "ETH/FLIP-0x826180541412d574cf1336d22c0c0a287822678a",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/flip-0x826180541412d574cf1336d22c0c0a287822678a.png"
+  },
+  {
+    "ticker": "FOX",
+    "identifier": "ETH/FOX-0xc770eefad204b5180df6a14ee197d99d808ee52d",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/fox-0xc770eefad204b5180df6a14ee197d99d808ee52d.png"
+  },
+  {
+    "ticker": "GUSD",
+    "identifier": "ETH/GUSD-0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/gusd-0x056fd409e1d7a124bd7017459dfea2f387b6d5cd.png"
+  },
+  {
+    "ticker": "HOT",
+    "identifier": "ETH/HOT-0x6c6ee5e31d828de241282b9606c8e98ea48526e2",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/hot-0x6c6ee5e31d828de241282b9606c8e98ea48526e2.png"
+  },
+  {
+    "ticker": "KYL",
+    "identifier": "ETH/KYL-0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/kyl-0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c.png"
+  },
+  {
+    "ticker": "LENDS",
+    "identifier": "ETH/LENDS-0x2c06ba9e7f0daccbc1f6a33ea67e85bb68fbee3a",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/lends-0x2c06ba9e7f0daccbc1f6a33ea67e85bb68fbee3a.png"
+  },
+  {
+    "ticker": "LINK",
+    "identifier": "ETH/LINK-0x514910771af9ca656af840dff83e8264ecf986ca",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/link-0x514910771af9ca656af840dff83e8264ecf986ca.png"
+  },
+  {
+    "ticker": "LUSD",
+    "identifier": "ETH/LUSD-0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/lusd-0x5f98805a4e8be255a32880fdec7f6728c6568ba0.png"
+  },
+  {
+    "ticker": "RAZE",
+    "identifier": "ETH/RAZE-0x5eaa69b29f99c84fe5de8200340b4e9b4ab38eac",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/raze-0x5eaa69b29f99c84fe5de8200340b4e9b4ab38eac.png"
+  },
+  {
+    "ticker": "SNX",
+    "identifier": "ETH/SNX-0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/snx-0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f.png"
+  },
+  {
+    "ticker": "TGT",
+    "identifier": "ETH/TGT-0x108a850856db3f85d0269a2693d896b394c80325",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/tgt-0x108a850856db3f85d0269a2693d896b394c80325.png"
+  },
+  {
+    "ticker": "THOR",
+    "identifier": "ETH/THOR-0xa5f2211b9b8170f694421f2046281775e8468044",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/thor-0xa5f2211b9b8170f694421f2046281775e8468044.png"
+  },
+  {
+    "ticker": "UOS",
+    "identifier": "ETH/UOS-0xd13c7342e1ef687c5ad21b27c2b65d772cab5c8c",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/uos-0xd13c7342e1ef687c5ad21b27c2b65d772cab5c8c.png"
+  },
+  {
+    "ticker": "USDP",
+    "identifier": "ETH/USDP-0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/usdp-0x8e870d67f660d95d5be530380d0ec0bd388289e1.png"
+  },
+  {
+    "ticker": "VTHOR",
+    "identifier": "ETH/VTHOR-0x815c23eca83261b6ec689b60cc4a58b54bc24d8d",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/vthor-0x815c23eca83261b6ec689b60cc4a58b54bc24d8d.png"
+  },
+  {
+    "ticker": "WBTC",
+    "identifier": "ETH/WBTC-0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/wbtc-0x2260fac5e5542a773aa44fbcfedf7c193bc2c599.png"
+  },
+  {
+    "ticker": "XDEFI",
+    "identifier": "ETH/XDEFI-0x72b886d09c117654ab7da13a14d603001de0b777",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/xdefi-0x72b886d09c117654ab7da13a14d603001de0b777.png"
+  },
+  {
+    "ticker": "XRUNE",
+    "identifier": "ETH/XRUNE-0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/xrune-0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c.png"
+  },
+  {
+    "ticker": "YFI",
+    "identifier": "ETH/YFI-0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/yfi-0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e.png"
+  },
+  {
+    "ticker": "ATOM",
+    "identifier": "GAIA/ATOM",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/gaia/atom.png"
+  },
+  {
+    "ticker": "LTC",
+    "identifier": "LTC/LTC",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/ltc/ltc.png"
+  }
+]

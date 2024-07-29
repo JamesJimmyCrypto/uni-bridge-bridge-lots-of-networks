@@ -1,0 +1,8 @@
+[
+  {
+    "ticker": "BTC",
+    "identifier": "BTC.BTC",
+    "decimals": 8,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/btc.btc.png"
+  }
+]

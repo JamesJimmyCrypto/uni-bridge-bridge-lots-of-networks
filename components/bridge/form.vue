@@ -23,14 +23,44 @@ const allChainList = useSortBy(
       icon: "token-branded:arbi",
     },
     {
-      id: "arweave",
-      label: "Arweave",
-      icon: "token:ar",
+      id: "avax",
+      label: "AVAX",
+      icon: "token-branded:avax",
     },
+    // {
+    //   id: "arweave",
+    //   label: "Arweave",
+    //   icon: "token:ar",
+    // },
     {
       id: "btc",
       label: "BTC",
       icon: "token-branded:btc",
+    },
+    {
+      id: "bch",
+      label: "BCH",
+      icon: "token-branded:bch",
+    },
+    {
+      id: "bsc",
+      label: "BSC",
+      icon: "token-branded:binance-smart-chain",
+    },
+    {
+      id: "dash",
+      label: "DASH",
+      icon: "token-branded:dash",
+    },
+    {
+      id: "doge",
+      label: "DOGE",
+      icon: "token-branded:doge",
+    },
+    {
+      id: "dot",
+      label: "DOT",
+      icon: "token-branded:polkadot",
     },
     {
       id: "eth",
@@ -38,19 +68,26 @@ const allChainList = useSortBy(
       icon: "token-branded:eth",
     },
     {
+      id: "kuji",
+      label: "KUJI",
+      icon: "token-branded:kujira",
+    },
+    {
+      id: "ltc",
+      label: "LTC",
+      icon: "token-branded:ltc",
+    },
+    {
+      id: "maya",
+      label: "MAYA",
+      avatar: {
+        src: "https://storage.googleapis.com/token-list-swapkit-dev/images/maya.cacao.png",
+      },
+    },
+    {
       id: "thor",
       label: "THOR",
       icon: "token-branded:thor",
-    },
-    {
-      id: "polygon",
-      label: "Polygon",
-      icon: "token-branded:polygon-zkevm",
-    },
-    {
-      id: "polkadot",
-      label: "Polkadot",
-      icon: "token-branded:polkadot",
     },
   ],
   "id"

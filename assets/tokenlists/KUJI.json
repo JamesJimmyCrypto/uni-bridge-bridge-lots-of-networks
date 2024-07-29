@@ -1,0 +1,14 @@
+[
+  {
+    "ticker": "KUJI",
+    "identifier": "KUJI.KUJI",
+    "decimals": 6,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/kuji.kuji.png"
+  },
+  {
+    "ticker": "USK",
+    "identifier": "KUJI.USK",
+    "decimals": 6,
+    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/kuji.usk.png"
+  }
+]
