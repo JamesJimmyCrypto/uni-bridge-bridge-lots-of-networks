@@ -57,7 +57,10 @@ const allChainList = useSortBy(
 );
 
 const fromChainList = [...allChainList];
+const toChainList = [...allChainList];
+
 let fromChain = $ref();
+let toChain = $ref();
 
 const fromTokenList = [
   {
@@ -122,13 +125,13 @@ const doSubmit = async () => {
       </div>
       <UInputMenu v-model="fromWalletAddress" size="xl" :options="fromWalletAddressList" placeholder="Please select your wallet address" />
       <div class="rounded-md flex-bc dark:bg-gray-900">
+        <BridgeInputMenu variant="none" :items="fromTokenList" v-model="fromToken" size="xl" class="w-40" placeholder="Token" />
         <UInput class="flex-auto" variant="none" type="number" size="xl" v-model="amount" placeholder="Please input token amount"></UInput>
-        <BridgeInputMenu variant="none" :items="fromTokenList" v-model="fromToken" size="xl" class="w-40" />
       </div>
 
-      <div class="flex-bc px-3">
-        <div>$1223.222</div>
+      <div class="flex-bc text-sm px-3">
         <div>Balance: 0.01233 ETH</div>
+        <div>$1223.222</div>
       </div>
     </div>
     <div class="flex-cc py-2">
@@ -137,13 +140,15 @@ const doSubmit = async () => {
     <div class="rounded-lg space-y-2 bg-gray-600 p-4">
       <div class="font-bold">To</div>
       <div class="flex-bc space-x-10">
-        <BridgeInputMenu :items="fromChainList" v-model="fromChain" />
-        <BridgeInputMenu :items="fromTokenList" v-model="fromToken" />
+        <BridgeInputMenu :items="toChainList" v-model="toChain" placeholder="Select target chain" />
+        <BridgeInputMenu :items="toTokenList" v-model="toToken" placeholder="Select target token" />
       </div>
-      <UInput type="number" size="xl" v-model="amount" placeholder="Please input token amount" />
-      <div class="flex-bc px-3">
-        <div>$1223.222</div>
+      <div class="">
+        {{ toAmount }}
+      </div>
+      <div class="flex-bc text-sm px-3">
         <div>Balance: 0.01233 ETH</div>
+        <div>$1223.222</div>
       </div>
     </div>
     <UButton block size="xl" color="lime" @click="doSubmit">{{ submitBtnTxt }}</UButton>
