@@ -6,8 +6,12 @@ export default defineNuxtConfig({
     fallback: "dark",
   },
    modules: [
-    '@vue-macros/nuxt',
+     '@vue-macros/nuxt',
+     '@nuxt/content',
   ],
+  content: {
+    documentDriven: true
+  }
   // sourcemap: true,
   // analyze: {
   //   analyzerMode: 'static'
