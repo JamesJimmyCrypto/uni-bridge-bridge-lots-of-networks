@@ -20,9 +20,9 @@ export default defineNuxtConfig({
   //   'nuxt-gtag',
   //   '@pinia/nuxt'
   // ],
-  // content: {
-  //   documentDriven: true
-  // },
+  content: {
+    documentDriven: true
+  },
   // vite: {
   //   plugins: [
   //     ReactivityTransform()
