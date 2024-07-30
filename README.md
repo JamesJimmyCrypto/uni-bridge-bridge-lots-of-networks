@@ -89,3 +89,16 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 ## Renovate integration
 
 Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
+
+
+## Features
+
+- [ ] Uni Connect modules
+  - [ ] connect wallet btn
+  - [ ] connect wallet modal
+    - [ ] user can see a list of supported chains
+    - [ ] user can select a chain
+      - [ ] list corresponding wallet app (filter by the tag of the chain)
+      - [ ] auto detect all the supported wallet app is installed or not
+        - [ ] if not installed: user can click the "Click to install" btn to install the missing wallet app
+        - [ ] if installed: user can click wallet btn to connect with the wallet app

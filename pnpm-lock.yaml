@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.2.230
     version: 2.2.230
   '@web3-fullstack/layer-saas':
-    specifier: 0.0.10
-    version: 0.0.10(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@0.4.3)(@vue/compiler-core@3.4.21)(node-fetch@3.3.2)(postcss@8.4.38)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.21)(webpack@5.91.0)
+    specifier: 0.0.11
+    version: 0.0.11(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@0.4.3)(@vue/compiler-core@3.4.21)(node-fetch@3.3.2)(postcss@8.4.38)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.21)(webpack@5.91.0)
   date-fns:
     specifier: ^3.6.0
     version: 3.6.0
@@ -1244,18 +1244,6 @@ packages:
       - supports-color
     dev: false
 
-  /@babel/plugin-transform-modules-commonjs@7.24.1(@babel/core@7.24.3):
-    resolution: {integrity: sha512-szog8fFTUxBfw0b98gEWPaEqF42ZUD/T3bkynW/wtgx2p/XCP55WEsb+VosKceRSd6njipdZvNogqdtI4Q0chw==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.24.3
-      '@babel/helper-module-transforms': 7.23.3(@babel/core@7.24.3)
-      '@babel/helper-plugin-utils': 7.24.0
-      '@babel/helper-simple-access': 7.22.5
-    dev: false
-
   /@babel/plugin-transform-modules-commonjs@7.24.8(@babel/core@7.24.3):
     resolution: {integrity: sha512-WHsk9H8XxRs3JXKWFiqtQebdh9b/pTk4EgueygFzYlTKAg0Ud985mSevdNjdXdFBATSKVJGQXP1tv6aGbssLKA==}
     engines: {node: '>=6.9.0'}
@@ -1754,11 +1742,13 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.24.3
-      '@babel/helper-plugin-utils': 7.24.0
-      '@babel/helper-validator-option': 7.23.5
-      '@babel/plugin-syntax-jsx': 7.24.1(@babel/core@7.24.3)
-      '@babel/plugin-transform-modules-commonjs': 7.24.1(@babel/core@7.24.3)
+      '@babel/helper-plugin-utils': 7.24.8
+      '@babel/helper-validator-option': 7.24.8
+      '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.24.3)
+      '@babel/plugin-transform-modules-commonjs': 7.24.8(@babel/core@7.24.3)
       '@babel/plugin-transform-typescript': 7.24.1(@babel/core@7.24.3)
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@babel/register@7.24.6(@babel/core@7.24.3):
@@ -3016,12 +3006,6 @@ packages:
 
   /@lit/reactive-element@1.6.3:
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.2.0
-    dev: false
-
-  /@lit/reactive-element@2.0.4:
-    resolution: {integrity: sha512-GFn91inaUa2oHLak8awSIigYz0cU0Payr1rcFsrkf5OJ5eSPxElyZfKh0f2p9FsTiZWXQdWGJeXZICEfXXYSXQ==}
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.2.0
     dev: false
@@ -5832,7 +5816,7 @@ packages:
     resolution: {integrity: sha512-4+Ctwo57RiLcxoZtoRvS2XE6NHiVTolA8RW6dI5EQU6Z5n2XYPpkkUdSHcmXuFWuJ5ZD19FzUnCsxtBoPbr2Fw==}
     dependencies:
       '@babel/core': 7.24.3
-      '@babel/plugin-syntax-jsx': 7.24.1(@babel/core@7.24.3)
+      '@babel/plugin-syntax-jsx': 7.24.7(@babel/core@7.24.3)
       '@babel/preset-typescript': 7.24.1(@babel/core@7.24.3)
       '@unocss/core': 0.58.8
     transitivePeerDependencies:
@@ -5969,7 +5953,7 @@ packages:
     resolution: {integrity: sha512-Yjq5gxdd97FIBNpxp7E2aRChqN6UVLEkRM6bgdaYDjbZsu6uvO2pkwQFQSx4Z0n8k/69KC4N05UQ1V68XF7I8Q==}
     engines: {node: '>=16.14.0'}
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
       '@vue-macros/common': 1.10.1(vue@3.4.21)
       resolve.exports: 2.0.2
     transitivePeerDependencies:
@@ -6020,7 +6004,7 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
       '@rollup/pluginutils': 5.1.0(rollup@4.13.2)
       '@vue/compiler-sfc': 3.4.21
       ast-kit: 0.11.3
@@ -6252,7 +6236,7 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.2.25
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.24.8
       '@vue-macros/common': 1.10.1(vue@3.4.21)
       '@vue/compiler-core': 3.4.21
       '@vue/shared': 3.4.21
@@ -6676,7 +6660,7 @@ packages:
       - vue
     dev: false
 
-  /@wagmi/connectors@5.0.25(@wagmi/core@2.12.1)(react-native@0.74.3)(react@18.3.1)(viem@2.15.1):
+  /@wagmi/connectors@5.0.25(@wagmi/core@2.12.1)(react-native@0.74.3)(react@18.3.1)(viem@2.17.4):
     resolution: {integrity: sha512-MCSE6o3G1xHbDki8pLSqXmFSHn3n6WK2YrrDN6/FzFZKALpNhCsilzjJVr2FDMW4rH+ie9nCqMVCAoaOX8Kr0g==}
     peerDependencies:
       '@wagmi/core': 2.12.1
@@ -6694,7 +6678,7 @@ packages:
       '@walletconnect/ethereum-provider': 2.13.0(react@18.3.1)
       '@walletconnect/modal': 2.6.2(react@18.3.1)
       cbw-sdk: /@coinbase/wallet-sdk@3.9.3
-      viem: 2.15.1
+      viem: 2.17.4
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -6832,14 +6816,6 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@walletconnect/heartbeat@1.2.1:
-    resolution: {integrity: sha512-yVzws616xsDLJxuG/28FqtZ5rzrTA4gUjdEMTbWB5Y8V1XHRmqq4efAxCw5ie7WjbXFSUyBHaWlMR+2/CpQC5Q==}
-    dependencies:
-      '@walletconnect/events': 1.0.1
-      '@walletconnect/time': 1.0.2
-      tslib: 1.14.1
-    dev: false
-
   /@walletconnect/heartbeat@1.2.2:
     resolution: {integrity: sha512-uASiRmC5MwhuRuf05vq4AT48Pq8RMi876zV8rr8cV969uTOzWdB/k+Lj5yI2PBtB1bGQisGen7MM1GcZlQTBXw==}
     dependencies:
@@ -6865,13 +6841,6 @@ packages:
       '@walletconnect/jsonrpc-utils': 1.0.8
       '@walletconnect/safe-json': 1.0.2
       events: 3.3.0
-    dev: false
-
-  /@walletconnect/jsonrpc-types@1.0.3:
-    resolution: {integrity: sha512-iIQ8hboBl3o5ufmJ8cuduGad0CQm3ZlsHtujv9Eu16xq89q+BG7Nh5VLxxUgmtpnrePgFkTwXirCTkwJH1v+Yw==}
-    dependencies:
-      keyvaluestorage-interface: 1.0.0
-      tslib: 1.14.1
     dev: false
 
   /@walletconnect/jsonrpc-types@1.0.4:
@@ -7027,32 +6996,6 @@ packages:
       tslib: 1.14.1
     dev: false
 
-  /@walletconnect/types@2.12.0:
-    resolution: {integrity: sha512-uhB3waGmujQVJcPgJvGOpB8RalgYSBT+HpmVbfl4Qe0xJyqpRUo4bPjQa0UYkrHaW20xIw94OuP4+FMLYdeemg==}
-    dependencies:
-      '@walletconnect/events': 1.0.1
-      '@walletconnect/heartbeat': 1.2.1
-      '@walletconnect/jsonrpc-types': 1.0.3
-      '@walletconnect/keyvaluestorage': 1.1.1
-      '@walletconnect/logger': 2.1.2
-      events: 3.3.0
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - uWebSockets.js
-    dev: false
-
   /@walletconnect/types@2.13.0:
     resolution: {integrity: sha512-MWaVT0FkZwzYbD3tvk8F+2qpPlz1LUSWHuqbINUtMXnSzJtXN49Y99fR7FuBhNFtDalfuWsEK17GrNA+KnAsPQ==}
     dependencies:
@@ -7109,40 +7052,6 @@ packages:
       - ioredis
       - uWebSockets.js
       - utf-8-validate
-    dev: false
-
-  /@walletconnect/utils@2.12.0:
-    resolution: {integrity: sha512-GIpfHUe1Bjp1Tjda0SkJEizKOT2biuv7VPFnKsOLT1T+8QxEP9NruC+K2UUEvijS1Qr/LKH9P5004RYNgrch+w==}
-    dependencies:
-      '@stablelib/chacha20poly1305': 1.0.1
-      '@stablelib/hkdf': 1.0.1
-      '@stablelib/random': 1.0.2
-      '@stablelib/sha256': 1.0.1
-      '@stablelib/x25519': 1.0.3
-      '@walletconnect/relay-api': 1.0.10
-      '@walletconnect/safe-json': 1.0.2
-      '@walletconnect/time': 1.0.2
-      '@walletconnect/types': 2.12.0
-      '@walletconnect/window-getters': 1.0.1
-      '@walletconnect/window-metadata': 1.0.1
-      detect-browser: 5.3.0
-      query-string: 7.1.3
-      uint8arrays: 3.1.1
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - uWebSockets.js
     dev: false
 
   /@walletconnect/utils@2.13.0:
@@ -7237,15 +7146,14 @@ packages:
       web-streams-polyfill: 3.3.3
     dev: false
 
-  /@web3-fullstack/layer-saas@0.0.10(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@0.4.3)(@vue/compiler-core@3.4.21)(node-fetch@3.3.2)(postcss@8.4.38)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.21)(webpack@5.91.0):
-    resolution: {integrity: sha512-5mkb7v+4LdggW/1aGsrIWkq82/O0YUz1cbAztWks4LKif8xeXUMvPYPO+AKTKRNJ8WbTMh6kxgJBza8Sw902Jg==}
+  /@web3-fullstack/layer-saas@0.0.11(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@0.4.3)(@vue/compiler-core@3.4.21)(node-fetch@3.3.2)(postcss@8.4.38)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.21)(webpack@5.91.0):
+    resolution: {integrity: sha512-bInK2ZYeRUKjTrRIdHKEOnCqDup20Ynjzesn8aITTF1padgv58QxNhk4wcVrPGnWJve+c+7HJq8szKlpqY6TAg==}
     dependencies:
       '@dicebear/collection': 9.0.1(@dicebear/core@9.0.1)
       '@dicebear/core': 9.0.1
-      '@wagmi/connectors': 5.0.25(@wagmi/core@2.12.1)(react-native@0.74.3)(react@18.3.1)(viem@2.15.1)
+      '@wagmi/connectors': 5.0.25(@wagmi/core@2.12.1)(react-native@0.74.3)(react@18.3.1)(viem@2.17.4)
       '@wagmi/core': 2.12.1(react@18.3.1)(viem@2.15.1)
       '@web3-fullstack/layer': 0.0.11(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@vue-macros/reactivity-transform@0.4.3)(@vue/compiler-core@3.4.21)(nuxt@3.11.1)(postcss@8.4.38)(vite@5.2.7)(vue@3.4.21)(webpack@5.91.0)
-      '@web3modal/wagmi': 5.0.6(@wagmi/connectors@5.0.25)(@wagmi/core@2.12.1)(react@18.3.1)(viem@2.17.4)(vue@3.4.21)
       date-fns: 3.6.0
       nft.storage: 7.1.1(node-fetch@3.3.2)
       nuxt: 3.11.1(vite@5.2.7)
@@ -7395,252 +7303,6 @@ packages:
 
   /@web3-storage/multipart-parser@1.0.0:
     resolution: {integrity: sha512-BEO6al7BYqcnfX15W2cnGR+Q566ACXAT9UQykORCWW80lmkpWsnEob6zJS1ZVBKsSJC8+7vJkHwlp+lXG1UCdw==}
-    dev: false
-
-  /@web3modal/common@5.0.6:
-    resolution: {integrity: sha512-VRLjA8FvHsnA3s0B+7ZbiXE5scQAZE7100RbbrjTjyJbseiU/W9gGoGcKW2NyBmfBrGQY3SXs62CCqcVQNMT4A==}
-    dependencies:
-      bignumber.js: 9.1.2
-      dayjs: 1.11.10
-    dev: false
-
-  /@web3modal/core@5.0.6(react@18.3.1):
-    resolution: {integrity: sha512-C3g2V/fYfV34mmn/h7YFsi8VSFXnaj508pHps0H3t/9UrKsEdvbl91rvxbWg7tulh4ZtMK4SOJVmuoEgbzGcaw==}
-    dependencies:
-      '@web3modal/common': 5.0.6
-      '@web3modal/wallet': 5.0.6
-      valtio: 1.11.2(react@18.3.1)
-    transitivePeerDependencies:
-      - '@types/react'
-      - react
-    dev: false
-
-  /@web3modal/polyfills@5.0.6:
-    resolution: {integrity: sha512-nisOsY9s0eU5ljYw8xIhrSDnMJAncB2bUIRwXYQGrI5Ly+jVd3XeINDtsOAsFVRz08+IC+H1eFt8DZEV1rKpFQ==}
-    dependencies:
-      buffer: 6.0.3
-    dev: false
-
-  /@web3modal/scaffold-react@5.0.6(react@18.3.1):
-    resolution: {integrity: sha512-6hcJSOQrBTe9Cgz7GEldcggWUKoWpLHf6bKieW0xAcfRWZUEU3jPJz79Y/zj7jNf+Z8lvARPP8qPmyB8uI0upg==}
-    peerDependencies:
-      react: '>=17'
-      react-dom: '>=17'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      '@web3modal/scaffold': 5.0.6(react@18.3.1)
-      react: 18.3.1
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - uWebSockets.js
-    dev: false
-
-  /@web3modal/scaffold-ui@5.0.6(react@18.3.1):
-    resolution: {integrity: sha512-U5NK+CML+e88cLcUUPBydI9o7kPxbhHL+JNPwxXWyCHfGFPuSYesuxKQKTp4ZL5wZ6FUI1RbgwDT9CX65+D4Qw==}
-    dependencies:
-      '@web3modal/common': 5.0.6
-      '@web3modal/core': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-utils': 5.0.6(react@18.3.1)
-      '@web3modal/siwe': 5.0.6(react@18.3.1)
-      '@web3modal/ui': 5.0.6
-      '@web3modal/wallet': 5.0.6
-      lit: 3.1.0
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - react
-      - uWebSockets.js
-    dev: false
-
-  /@web3modal/scaffold-utils@5.0.6(react@18.3.1):
-    resolution: {integrity: sha512-/yNwlo/SlvY0Vi3kr/qoUCdhz978A7XlUqdcnk4mdEBFs0X0BzJbdfQ75xuKHXD+1ZU38HTV3lRH/XAbxbT5IA==}
-    dependencies:
-      '@web3modal/core': 5.0.6(react@18.3.1)
-      '@web3modal/polyfills': 5.0.6
-      valtio: 1.11.2(react@18.3.1)
-    transitivePeerDependencies:
-      - '@types/react'
-      - react
-    dev: false
-
-  /@web3modal/scaffold-vue@5.0.6(react@18.3.1)(vue@3.4.21):
-    resolution: {integrity: sha512-uannt8oVKjBFDXSY4wcAgK7oRyMOU/BLPA9duxYbVXcCTYeJSfv9v6/70Xb/CA0oIIW4MH2neqbbwzYGSTx1Eg==}
-    peerDependencies:
-      vue: '>=3'
-    peerDependenciesMeta:
-      vue:
-        optional: true
-    dependencies:
-      '@web3modal/scaffold': 5.0.6(react@18.3.1)
-      vue: 3.4.21
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - react
-      - uWebSockets.js
-    dev: false
-
-  /@web3modal/scaffold@5.0.6(react@18.3.1):
-    resolution: {integrity: sha512-KqcFJH5V8pMh4OHLV7dsTZTCNXUjsB7EKPEPpyq9bru60fiCz5PniS6nWRrZEmS7+BMNDr3cv/SVvg3+Rrvl+g==}
-    dependencies:
-      '@web3modal/common': 5.0.6
-      '@web3modal/core': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-ui': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-utils': 5.0.6(react@18.3.1)
-      '@web3modal/siwe': 5.0.6(react@18.3.1)
-      '@web3modal/ui': 5.0.6
-      '@web3modal/wallet': 5.0.6
-      lit: 3.1.0
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - react
-      - uWebSockets.js
-    dev: false
-
-  /@web3modal/siwe@5.0.6(react@18.3.1):
-    resolution: {integrity: sha512-2Z4Ho4aysguZIUSgiA+MkQiK4fL2QwTI2m3WI/BmbwNf7BpMWGKawO4dhzNtpLGUU2BeEPXYfLG9XhxOFllRUQ==}
-    dependencies:
-      '@walletconnect/utils': 2.12.0
-      '@web3modal/core': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-utils': 5.0.6(react@18.3.1)
-      lit: 3.1.0
-      valtio: 1.11.2(react@18.3.1)
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - ioredis
-      - react
-      - uWebSockets.js
-    dev: false
-
-  /@web3modal/ui@5.0.6:
-    resolution: {integrity: sha512-Rywu2V2p8RFo3mLLcnaqyJMVPH176qii4IxIs+wuNh49KNqWvCaJ0gp/k54X3xt+yyi3VH3pnsS9EG7wPGm+7Q==}
-    dependencies:
-      lit: 3.1.0
-      qrcode: 1.5.3
-    dev: false
-
-  /@web3modal/wagmi@5.0.6(@wagmi/connectors@5.0.25)(@wagmi/core@2.12.1)(react@18.3.1)(viem@2.17.4)(vue@3.4.21):
-    resolution: {integrity: sha512-ZS898MQN/w4nWe9q7F65vMO7TbJAJA3/Bz9NyLkDEJUvzdG1JWRggs5g8U0ZjlpfTbKKV2masgh9GnOrzjI+GQ==}
-    peerDependencies:
-      '@wagmi/connectors': '>=4'
-      '@wagmi/core': '>=2.0.0'
-      react: '>=17'
-      react-dom: '>=17'
-      viem: '>=2.0.0'
-      vue: '>=3'
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-      vue:
-        optional: true
-    dependencies:
-      '@wagmi/connectors': 5.0.25(@wagmi/core@2.12.1)(react-native@0.74.3)(react@18.3.1)(viem@2.15.1)
-      '@wagmi/core': 2.12.1(react@18.3.1)(viem@2.15.1)
-      '@walletconnect/ethereum-provider': 2.13.0(react@18.3.1)
-      '@web3modal/polyfills': 5.0.6
-      '@web3modal/scaffold': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-react': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-utils': 5.0.6(react@18.3.1)
-      '@web3modal/scaffold-vue': 5.0.6(react@18.3.1)(vue@3.4.21)
-      '@web3modal/siwe': 5.0.6(react@18.3.1)
-      react: 18.3.1
-      viem: 2.17.4
-      vue: 3.4.21
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@react-native-async-storage/async-storage'
-      - '@types/react'
-      - '@upstash/redis'
-      - '@vercel/kv'
-      - bufferutil
-      - encoding
-      - ioredis
-      - uWebSockets.js
-      - utf-8-validate
-    dev: false
-
-  /@web3modal/wallet@5.0.6:
-    resolution: {integrity: sha512-kJbp8cYHgvHc2t/lRESFrVyE8nC5jFwv1X7xpkDSrRJP+461D9UsKFWiQHW1MzDy30+D7HOaMQso/EPt8H1p0A==}
-    dependencies:
-      '@walletconnect/logger': 2.1.2
-      '@web3modal/polyfills': 5.0.6
-      zod: 3.22.4
     dev: false
 
   /@webassemblyjs/ast@1.12.1:
@@ -8041,7 +7703,7 @@ packages:
     resolution: {integrity: sha512-qdwwKEhckRk0XE22/xDdmU3v/60E8Edu4qFhgTLIhGGDs/PAJwLw9pQn8Rj99PitlbBZbYpx0k/lbir4kg0SuA==}
     engines: {node: '>=16.14.0'}
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.24.8
       '@rollup/pluginutils': 5.1.0(rollup@4.13.2)
       pathe: 1.1.2
     transitivePeerDependencies:
@@ -8052,7 +7714,7 @@ packages:
     resolution: {integrity: sha512-kbL7ERlqjXubdDd+szuwdlQ1xUxEz9mCz1+m07ftNVStgwRb2RWw+U6oKo08PAvOishMxiqz1mlJyLl8yQx2Qg==}
     engines: {node: '>=16.14.0'}
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.24.8
       '@rollup/pluginutils': 5.1.0(rollup@4.13.2)
       pathe: 1.1.2
     transitivePeerDependencies:
@@ -8070,7 +7732,7 @@ packages:
     resolution: {integrity: sha512-NsyHMxBh4dmdEHjBo1/TBZvCKxffmZxRYhmclfu0PP6Aftre47jOHYaYaNqJcV0bxihxFXhDkzLHUwHc0ocd0Q==}
     engines: {node: '>=16.14.0'}
     dependencies:
-      '@babel/parser': 7.24.7
+      '@babel/parser': 7.24.8
       ast-kit: 0.9.5
     transitivePeerDependencies:
       - rollup
@@ -8122,11 +7784,11 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      browserslist: 4.23.0
-      caniuse-lite: 1.0.30001600
+      browserslist: 4.23.2
+      caniuse-lite: 1.0.30001642
       fraction.js: 4.3.7
       normalize-range: 0.1.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
     dev: false
@@ -8246,10 +7908,6 @@ packages:
 
   /base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
-    dev: false
-
-  /bignumber.js@9.1.2:
-    resolution: {integrity: sha512-2/mKyZH9K85bzOEfhXDBFZTGd1CTs+5IHpeFQo9luiBG7hghdC851Pj2WAhb6E3R6b9tZj/XKhbg4fum+Kepug==}
     dev: false
 
   /binary-extensions@2.3.0:
@@ -8551,8 +8209,8 @@ packages:
   /caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
-      browserslist: 4.23.0
-      caniuse-lite: 1.0.30001600
+      browserslist: 4.23.2
+      caniuse-lite: 1.0.30001642
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: false
@@ -9169,7 +8827,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       css-declaration-sorter: 7.2.0(postcss@8.4.38)
       cssnano-utils: 4.0.2(postcss@8.4.38)
       postcss: 8.4.38
@@ -9261,10 +8919,6 @@ packages:
 
   /date-fns@3.6.0:
     resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
-    dev: false
-
-  /dayjs@1.11.10:
-    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
     dev: false
 
   /dayjs@1.11.11:
@@ -11986,22 +11640,8 @@ packages:
       lit-html: 2.8.0
     dev: false
 
-  /lit-element@4.0.6:
-    resolution: {integrity: sha512-U4sdJ3CSQip7sLGZ/uJskO5hGiqtlpxndsLr6mt3IQIjheg93UKYeGQjWMRql1s/cXNOaRrCzC2FQwjIwSUqkg==}
-    dependencies:
-      '@lit-labs/ssr-dom-shim': 1.2.0
-      '@lit/reactive-element': 2.0.4
-      lit-html: 3.1.4
-    dev: false
-
   /lit-html@2.8.0:
     resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
-    dependencies:
-      '@types/trusted-types': 2.0.7
-    dev: false
-
-  /lit-html@3.1.4:
-    resolution: {integrity: sha512-yKKO2uVv7zYFHlWMfZmqc+4hkmSbFp8jgjdZY9vvR9jr4J8fH6FUMXhr+ljfELgmjpvlF7Z1SJ5n5/Jeqtc9YA==}
     dependencies:
       '@types/trusted-types': 2.0.7
     dev: false
@@ -12012,14 +11652,6 @@ packages:
       '@lit/reactive-element': 1.6.3
       lit-element: 3.3.3
       lit-html: 2.8.0
-    dev: false
-
-  /lit@3.1.0:
-    resolution: {integrity: sha512-rzo/hmUqX8zmOdamDAeydfjsGXbbdtAFqMhmocnh2j9aDYqbu0fjXygjCa0T99Od9VQ/2itwaGrjZz/ZELVl7w==}
-    dependencies:
-      '@lit/reactive-element': 2.0.4
-      lit-element: 4.0.6
-      lit-html: 3.1.4
     dev: false
 
   /loader-runner@4.3.0:
@@ -14418,7 +14050,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       caniuse-api: 3.0.0
       colord: 2.9.3
       postcss: 8.4.38
@@ -14431,7 +14063,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
     dev: false
@@ -14542,7 +14174,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       caniuse-api: 3.0.0
       cssnano-utils: 4.0.2(postcss@8.4.38)
       postcss: 8.4.38
@@ -14577,7 +14209,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       cssnano-utils: 4.0.2(postcss@8.4.38)
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
@@ -14680,7 +14312,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
     dev: false
@@ -14722,7 +14354,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       caniuse-api: 3.0.0
       postcss: 8.4.38
     dev: false
@@ -16258,7 +15890,7 @@ packages:
     peerDependencies:
       postcss: ^8.4.31
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.2
       postcss: 8.4.38
       postcss-selector-parser: 6.0.16
     dev: false
@@ -16356,7 +15988,7 @@ packages:
       css-tree: 2.3.1
       css-what: 6.1.0
       csso: 5.0.5
-      picocolors: 1.0.0
+      picocolors: 1.0.1
     dev: false
 
   /system-architecture@0.1.0:
@@ -16412,7 +16044,7 @@ packages:
       micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       postcss: 8.4.38
       postcss-import: 15.1.0(postcss@8.4.38)
       postcss-js: 4.0.1(postcss@8.4.38)
@@ -17051,7 +16683,7 @@ packages:
       vue-router:
         optional: true
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.9
       '@rollup/pluginutils': 5.1.0(rollup@4.13.2)
       '@vue-macros/common': 1.10.1(vue@3.4.21)
       ast-walker-scope: 0.5.0
@@ -17538,7 +17170,7 @@ packages:
       cac: 6.7.14
       debug: 4.3.5
       pathe: 1.1.2
-      picocolors: 1.0.0
+      picocolors: 1.0.1
       vite: 5.2.7
     transitivePeerDependencies:
       - '@types/node'
@@ -17582,7 +17214,7 @@ packages:
       vue-tsc:
         optional: true
     dependencies:
-      '@babel/code-frame': 7.24.2
+      '@babel/code-frame': 7.24.7
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       chokidar: 3.6.0
@@ -18148,10 +17780,6 @@ packages:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
       readable-stream: 4.5.2
-    dev: false
-
-  /zod@3.22.4:
-    resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: false
 
   /zustand@4.4.1(react@18.3.1):

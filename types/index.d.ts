@@ -1,5 +1,6 @@
 import type { Avatar } from '#ui/types'
 
+
 export type UserStatus = 'subscribed' | 'unsubscribed' | 'bounced'
 
 export interface User {

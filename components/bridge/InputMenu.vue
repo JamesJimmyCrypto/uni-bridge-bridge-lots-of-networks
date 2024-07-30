@@ -12,7 +12,7 @@ const { items } = $defineProps<{
 }>();
 
 let { modelValue } = $defineModels<{
-  modelValue: item;
+  modelValue?: item;
 }>();
 
 const updateModelValue = (value: item) => {

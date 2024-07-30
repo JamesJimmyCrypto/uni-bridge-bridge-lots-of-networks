@@ -3,7 +3,8 @@ definePageMeta({
   colorMode: "dark",
 });
 
-const { data: page } = await useAsyncData("index", () => queryContent("/").findOne());
+const { data: page } = await useAsyncData("home", () => queryContent("/home").findOne());
+
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
 }

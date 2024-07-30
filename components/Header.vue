@@ -12,7 +12,7 @@ const { userId } = $(supabaseStore());
       </div>
     </template>
 
-    <template #right>
+    <template #right2>
       <UPopover v-if="address" :popper="{ placement: 'bottom-end' }">
         <UButton color="white" block>
           <!-- <UAvatar :src="selectedWallet.iconUrl" :alt="selectedWallet.label" size="2xs" />
