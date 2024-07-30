@@ -6,7 +6,7 @@ declare global {
 
 interface EIP6963ProviderInfo {
   rdns: string;
-  uuid: string;
+  uukey: string;
   name: string;
   icon: string;
 }
@@ -32,84 +32,119 @@ interface EIP1193Provider {
   request: (request: { method: string; params?: Array<unknown> }) => Promise<unknown>;
 }
 
-import { acala, avalanche, arbitrum, polygon } from 'viem/chains'
-const allChainListUnSorted =  [
+import { acala, avalanche, arbitrum, dogechain, polygon, bsc, opBNB, mainnet } from 'viem/chains'
+let allChainList =  [
     {
-      id: "arbitrum",
+      key: "arbitrum",
       icon: "token-branded:arbi",
+      ...arbitrum,
     },
     {
-      id: 'acala',
+      key: 'acala',
       avatar: {
         src: 'https://acala.network/assets/Acala%20Gradient-tyIktH2a.png'
-      }
+      },
+      ...acala,
     },
     {
-      id: "avax",
+      key: "avalanche",
       icon: "token-branded:avax",
+      ...avalanche,
     },
     {
-      id: "arweave",
+      key: "polygon",
+      icon: "token-branded:polygon-pos",
+      ...polygon,
+    },
+    {
+      key: "bsc",
+      icon: "token-branded:binance-smart-chain",
+      ...bsc,
+    },
+    {
+      key: "bnb",
+      icon: "cryptocurrency-color:bnb",
+      ...opBNB,
+    },
+    {
+      key: "dogechain",
+      avatar: {
+        src: 'https://ugc.production.linktr.ee/tPCVQbdjQrCpobdIcJZp_ZZ28y10j9t75pLGN?io=true&size=avatar-v3_0'
+      },
+      ...dogechain
+   },
+   {
+      key: "eth",
+      icon: "token-branded:eth",
+      ...mainnet,
+    },
+    // not done
+    {
+      key: "arweave",
       label: "Arweave",
       icon: "token:ar",
     },
     {
-      id: "btc",
+      key: "btc",
       label: "BTC",
       icon: "token-branded:btc",
     },
     {
-      id: "bch",
+      key: "bch",
       label: "BCH",
       icon: "token-branded:bch",
     },
-    {
-      id: "bsc",
-      icon: "token-branded:binance-smart-chain",
-    },
+  
     // {
-    //   id: "dash",
+    //   key: "dash",
     //   label: "DASH",
     //   icon: "token-branded:dash",
     // },
+  
     {
-      id: "doge",
-      label: "DOGE",
-      icon: "token-branded:doge",
-    },
-    {
-      id: "dot",
+      id: 'dot',
+      key: "dot",
       label: "DOT",
-      chainId: 0x1065,
       icon: "token-branded:polkadot",
     },
+    
     {
-      id: "eth",
-      icon: "token-branded:eth",
-    },
-    {
-      id: "kuji",
+      key: "kuji",
       label: "KUJI",
       icon: "token-branded:kujira",
     },
     {
-      id: "ltc",
+      key: "ltc",
       label: "LTC",
       icon: "token-branded:ltc",
     },
     {
-      id: "maya",
+      key: "maya",
       label: "MAYA",
       avatar: {
         src: "https://storage.googleapis.com/token-list-swapkit-dev/images/maya.cacao.png",
       },
     },
     {
-      id: "thor",
+      key: "thor",
       label: "THOR",
       icon: "token-branded:thor",
     },
 ]
+
+allChainList = useMap(
+  allChainList,
+  item => {
+    return {
+      ...item,
+      label: item.name || item.label
+    }
+  }
+);
+allChainList = useSortBy(
+  allChainList,
+  "key"
+);
 
 const allWalletList = [
     {
@@ -139,10 +174,7 @@ const allWalletList = [
     },
   ];
   
-const allChainList = useSortBy(
-  allChainListUnSorted,
-  "id"
-);
+
 
 export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let isLoading = $ref(false);
@@ -167,7 +199,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     let tag = "evm";
     let walletAppMap = {};
 
-    if (fromChain.id === "arweave") {
+    if (fromChain.key === "arweave") {
       tag = "ar";
     }
 

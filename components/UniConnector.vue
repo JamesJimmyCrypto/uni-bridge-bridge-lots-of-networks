@@ -30,7 +30,7 @@ onMounted(() => {
         <h2 class="font-bold text-center pb-6">Connect Wallet</h2>
         <div class="flex space-x-2 justify-between items-center">
           <div>Supported wallet list</div>
-          <BridgeInputMenu class="w-1/3" :items="fromChainList" v-model="fromChain" placeholder="Select chain" />
+          <BridgeInputMenu class="w-2/5" :items="fromChainList" v-model="fromChain" placeholder="Select chain" />
         </div>
         <div class="space-y-3 py-8">
           <div v-if="fromWalletAppList.length === 0" class="text-center text-red-400">Please select chain first.</div>
