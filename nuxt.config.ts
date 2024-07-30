@@ -20,7 +20,8 @@ export default defineNuxtConfig({
   ],
   content: {
     documentDriven: true
-  }
+  },
+  ssr: false
   // sourcemap: true,
   // analyze: {
   //   analyzerMode: 'static'
