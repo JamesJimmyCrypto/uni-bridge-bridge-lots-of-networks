@@ -6,4 +6,9 @@ export default defineNuxtConfig({
     fallback: "dark",
   },
   sourcemap: true,
+  analyze: {
+    analyzerMode: 'static'
+  },
+  debug: true,
+  dev: true,
 });
