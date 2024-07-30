@@ -32,7 +32,7 @@ export default defineAppConfig({
     ]
   },
   ui: {
-    primary: 'sky',
+    primary: 'lime',
     gray: 'cool',
     tooltip: {
       default: {
