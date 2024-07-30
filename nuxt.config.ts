@@ -6,8 +6,17 @@ export default defineNuxtConfig({
     fallback: "dark",
   },
    modules: [
-     '@vue-macros/nuxt',
-     '@nuxt/content',
+    '@nuxt/content',
+    '@nuxt/image',
+    '@nuxt/ui',
+    '@nuxt/fonts',
+    '@vueuse/nuxt',
+    'nuxt-og-image',
+    '@vue-macros/nuxt',
+    'nuxt-lodash',
+    '@nuxtjs/supabase',
+    'nuxt-gtag',
+    '@pinia/nuxt'
   ],
   content: {
     documentDriven: true
