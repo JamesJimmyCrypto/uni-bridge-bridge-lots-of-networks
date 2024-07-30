@@ -15,7 +15,7 @@ export default defineAppConfig({
       },
       {
         label: 'Bridge',
-        to: '/bridge-intro'
+        to: '/bridge/intro',
       },
       {
         label: 'Trade',

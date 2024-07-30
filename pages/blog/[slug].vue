@@ -26,21 +26,21 @@ useSeoMeta({
   ogDescription: description,
 });
 
-// if (post.value.image?.src) {
-//   const site = useSiteConfig();
+if (post.value.image?.src) {
+  const site = useSiteConfig();
 
-//   useSeoMeta({
-//     ogImage: joinURL(site.url, post.value.image.src),
-//     twitterImage: joinURL(site.url, post.value.image.src),
-//   });
-// } else {
-//   // defineOgImage({
-//   //   component: "Saas",
-//   //   title,
-//   //   description,
-//   //   headline: "blog",
-//   // });
-// }
+  useSeoMeta({
+    ogImage: joinURL(site.url, post.value.image.src),
+    twitterImage: joinURL(site.url, post.value.image.src),
+  });
+} else {
+  defineOgImage({
+    component: "Saas",
+    title,
+    description,
+    headline: "blog",
+  });
+}
 </script>
 
 <template>

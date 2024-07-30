@@ -10,7 +10,7 @@ hero:
     - label: Stake stETH now
       to: "/stake"
       size: xl
-      color: green
+      color: primary
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
     # - label: Use this template
