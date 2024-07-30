@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/fonts',
     '@vueuse/nuxt',
-    'nuxt-og-image',
+    // 'nuxt-og-image',
     '@vue-macros/nuxt',
     'nuxt-lodash',
     '@nuxtjs/supabase',
