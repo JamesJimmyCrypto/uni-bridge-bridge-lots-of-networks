@@ -5,10 +5,13 @@ export default defineNuxtConfig({
     preference: "dark",
     fallback: "dark",
   },
-  sourcemap: true,
-  analyze: {
-    analyzerMode: 'static'
-  },
-  debug: true,
-  dev: true,
+   modules: [
+    '@vue-macros/nuxt',
+  ],
+  // sourcemap: true,
+  // analyze: {
+  //   analyzerMode: 'static'
+  // },
+  // debug: true,
+  // dev: true,
 });
