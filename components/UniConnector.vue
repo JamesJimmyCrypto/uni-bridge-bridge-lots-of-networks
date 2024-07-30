@@ -1,7 +1,17 @@
 <script setup lang="ts">
-const { isOpen, currentAccount, currentWallet, fromChain, listProviders, connectOrJump, fromWalletAppList, fromChainList, isLoading } = $(
-  uniConnectorStore()
-);
+const {
+  isOpen,
+  currentAccount,
+  currentWallet,
+  isWrongNetwork,
+  forceSwitchChain,
+  fromChain,
+  listProviders,
+  connectOrJump,
+  fromWalletAppList,
+  fromChainList,
+  isLoading,
+} = $(uniConnectorStore());
 
 onMounted(() => {
   listProviders();
@@ -10,20 +20,17 @@ onMounted(() => {
 
 <template>
   <div id="uni-connector">
-    <UButton v-if="!currentAccount" label="Connect Wallet" :loading="isLoading" color="primary" @click="isOpen = true" />
-
-    <UPopover v-if="currentAccount" :popper="{ placement: 'bottom-end' }">
-      <UButton color="white" block>
-        <!-- <DicebearAvatar :seed="currentAccount" size="2xs" /> -->
-        {{ shortAddress(currentAccount) }}
+    <UButton color="red" v-if="isWrongNetwork" block @click="forceSwitchChain(fromChain, currentWallet)">Switch network</UButton>
+    <UButton class="group" v-else-if="currentAccount" color="white" block @click="isOpen = true">
+      <div class="hidden group-hover:block">Change wallet</div>
+      <div class="flex-bc space-x-1 group-hover:hidden">
+        <div>
+          {{ shortAddress(currentAccount) }}
+        </div>
         <Avatar v-bind="currentWallet" />
-
-        <!-- <span class="text-primary">{{ credBalance }} $CRED</span> -->
-      </UButton>
-      <template #panel>
-        <UButton color="red" class="!text-white" @click="doLogout('metamask')"> Disconnect </UButton>
-      </template>
-    </UPopover>
+      </div>
+    </UButton>
+    <UButton v-else label="Connect Wallet" :loading="isLoading" color="primary" @click="isOpen = true" />
 
     <UModal v-model="isOpen">
       <div class="p-6">

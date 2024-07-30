@@ -183,6 +183,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let isConnected = $ref(false);
   let address = $ref("");
   let providers = $ref([]);
+  let currentChainId = $ref("");
   let currentAccount = $ref("");
   let currentWallet = $ref("");
 
@@ -279,9 +280,12 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   const connectWithProvider = async (wallet: EIP6963AnnounceProviderEvent["detail"]) => {
     try {
       const accounts = await wallet.provider.request({ method: "eth_requestAccounts" });
-      let chainId = await wallet.provider.request({ method: "eth_chainId" });
-      chainId = Number(chainId)
-      if (chainId !== fromChain?.id) {
+      const chainId = await wallet.provider.request({ method: "eth_chainId" });
+      wallet.provider.on("chainChanged", chainId => {
+        currentChainId = Number(chainId)
+      })
+      currentChainId = Number(chainId)
+      if (currentChainId !== fromChain?.id) {
         const rz = await forceSwitchChain(fromChain, wallet)
         if (!rz) {
           return
@@ -311,7 +315,12 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     }
   }
 
-  return $$({ isLoading, currentAccount, currentWallet, listProviders, connectOrJump, providers, isConnected, address, isOpen, fromChainList, fromWalletAppList, fromChain, fromWalletApp });
+  const isWrongNetwork = $computed(() => {
+    if (!fromChain) return false
+    return fromChain.id !== currentChainId
+  })
+
+  return $$({ isLoading, currentChainId, forceSwitchChain, isWrongNetwork, currentAccount, currentWallet, listProviders, connectOrJump, providers, isConnected, address, isOpen, fromChainList, fromWalletAppList, fromChain, fromWalletApp });
 });
 
 if (import.meta.hot) import.meta.hot.accept(acceptHMRUpdate(uniConnectorStore, import.meta.hot));
