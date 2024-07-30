@@ -24,6 +24,7 @@
     "viem": "^2.15.1"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.3.7"
+    "@nuxt/devtools": "^1.3.7",
+    "@vue-macros/reactivity-transform": "^1.0.0"
   }
 }
