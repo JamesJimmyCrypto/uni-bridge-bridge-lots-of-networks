@@ -3,15 +3,14 @@ definePageMeta({
   colorMode: "dark",
 });
 
-// const { data: page } = await useAsyncData("home", () => queryContent("/home").findOne());
-
-// if (!page.value) {
-//   throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
-// }
+const { data: page } = await useAsyncData("home", () => queryContent("/home").findOne());
+console.log(`====> page :`, page);
+if (!page.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
+}
 </script>
 
 <template>
-  home
   <div v-if="page">
     <UMain class="flex justify-center items-center">
       <div class="inset-0 animate-pulse z-[-1] absolute landing-grid [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" />

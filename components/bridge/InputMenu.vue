@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import type { Avatar } from "#ui/types";
-
 interface item {
   id: string;
   label: string;
-  avatar?: Avatar;
+  avatar?: Object;
   icon?: string;
 }
 const { items } = $defineProps<{
@@ -25,7 +23,7 @@ const updateModelValue = (value: item) => {
     <template #leading>
       <div v-if="modelValue" class="flex items-center">
         <UIcon v-if="modelValue?.icon" :name="(modelValue.icon as string)" class="h-5 w-5" />
-        <UAvatar v-else-if="modelValue?.avatar" v-bind="(modelValue.avatar as Avatar)" size="2xs" />
+        <UAvatar v-else-if="modelValue?.avatar" v-bind="modelValue.avatar" size="2xs" />
       </div>
       <div v-else></div>
     </template>
