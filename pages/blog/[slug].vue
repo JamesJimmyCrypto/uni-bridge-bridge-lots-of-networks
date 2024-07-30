@@ -34,12 +34,12 @@ if (post.value.image?.src) {
     twitterImage: joinURL(site.url, post.value.image.src),
   });
 } else {
-  defineOgImage({
-    component: "Saas",
-    title,
-    description,
-    headline: "blog",
-  });
+  // defineOgImage({
+  //   component: "Saas",
+  //   title,
+  //   description,
+  //   headline: "blog",
+  // });
 }
 </script>
 
