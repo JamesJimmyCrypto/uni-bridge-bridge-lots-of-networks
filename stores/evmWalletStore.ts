@@ -13,7 +13,6 @@ import {
   keccak256,
 } from "viem";
 import { hardhat, filecoinCalibration, bscTestnet } from "viem/chains";
-import { getLsItem } from '~/utils/ls';
 
 const networkMap = {
   hardhat,
