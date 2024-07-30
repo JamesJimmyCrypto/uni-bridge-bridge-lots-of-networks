@@ -177,6 +177,7 @@ const allWalletList = [
 
 
 export const uniConnectorStore = defineStore("uniConnectorStore", () => {
+  const {addError, addSuccess} = $(notificationStore())
   let isLoading = $ref(false);
   let isOpen = $ref(true);
   let isConnected = $ref(false);
@@ -234,7 +235,45 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   }
 
   const forceSwitchChain = async (chain, wallet) => {
-    console.log(`====> chain, wallet :`, chain, wallet)
+    const chainId = `0x${chain.id.toString(16)}`;
+
+    try {
+      await wallet.provider // Or window.ethereum if you don't support EIP-6963.
+        .request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId }],
+        })
+      return true
+    } catch (switchError) {
+      // This error code indicates that the chain has not been added to MetaMask.
+      if (switchError.code === 4902) {
+        try {
+          const data = {
+            chainId,
+            chainName: chain.name,
+            nativeCurrency: { ...chain.nativeCurrency },
+            rpcUrls: [useGet(chain, 'rpcUrls.default.http[0]')],
+            blockExplorerUrls: [useGet(chain, 'blockExplorers.default.url')],
+          }
+          await wallet.provider // Or window.ethereum if you don't support EIP-6963.
+            .request({
+              method: "wallet_addEthereumChain",
+              params: [
+                data,
+              ],
+            })
+          return true
+        } catch (errMsg) {
+          // Handle "add" error.
+          console.log(`====> errMsg :`, errMsg)
+          addError(errMsg.message)
+          return false
+        }
+      }
+      console.log(`====> switchError :`, switchError)
+      addError(switchError.message)
+    }
+    return false
   }
   // Connect to the selected provider using eth_requestAccounts.
   const connectWithProvider = async (wallet: EIP6963AnnounceProviderEvent["detail"]) => {
@@ -242,7 +281,12 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
       const accounts = await wallet.provider.request({ method: "eth_requestAccounts" });
       let chainId = await wallet.provider.request({ method: "eth_chainId" });
       chainId = Number(chainId)
-      console.log(`====> chainId :`, chainId)
+      if (chainId !== fromChain?.id) {
+        const rz = await forceSwitchChain(fromChain, wallet)
+        if (!rz) {
+          return
+        }
+      }
       currentAccount = accounts[0];
       currentWallet = wallet;
       isOpen = false
