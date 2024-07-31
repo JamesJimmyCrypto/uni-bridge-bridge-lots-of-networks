@@ -34,7 +34,7 @@ onMounted(() => {
 
     <UModal v-model="isOpen">
       <div class="p-6">
-        <h2 class="font-bold text-center pb-6">Connect Wallet</h2>
+        <h2 class="font-bold text-center pb-6">{{ currentAccount ? "Change wallet" : "Connect wallet" }}</h2>
         <div class="flex space-x-2 justify-between items-center">
           <div>Supported wallet list</div>
           <BridgeInputMenu class="w-2/5" :items="fromChainList" v-model="fromChain" placeholder="Select chain" />

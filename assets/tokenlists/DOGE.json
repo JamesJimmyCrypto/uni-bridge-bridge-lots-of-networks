@@ -1,8 +1,10 @@
 [
   {
-    "ticker": "DOGE",
     "identifier": "DOGE.DOGE",
     "decimals": 8,
-    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/doge.doge.png"
+    "label": "DOGE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/doge.doge.png"
+    }
   }
 ]

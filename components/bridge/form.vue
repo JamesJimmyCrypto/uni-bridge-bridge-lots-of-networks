@@ -93,27 +93,12 @@ const allChainList = useSortBy(
   "id"
 );
 
-const { fromChainList, fromChain } = $(uniConnectorStore());
+const { fromChainList, fromChain, fromTokenList, isLoading, fromToken, fromTokenBalance } = $(uniConnectorStore());
 
 const toChainList = [...allChainList];
 
 let toChain = $ref();
 
-const fromTokenList = [
-  {
-    id: "eth",
-    label: "ETH",
-    icon: "token-branded:eth",
-  },
-
-  {
-    id: "arweave",
-    label: "AR",
-    icon: "token:ar",
-  },
-];
-
-let fromToken = $ref();
 let amount = $ref();
 
 const fromWalletAddressList = ["0xd319905AFEa8401f1eb56fBFD0754853B6B79816", "pSQc9tmQKpw1mqDIOisGL2mXYdRjfldmoLZKkqFhuj4"];
@@ -146,15 +131,19 @@ const doConnect = async () => {
       </div>
       <div class="flex-bc">
         <BridgeInputMenu :items="fromChainList" v-model="fromChain" placeholder="Select source chain" />
-        <BridgeInputMenu :items="fromTokenList" v-model="fromToken" placeholder="Token" />
+        <BridgeInputMenu :items="fromTokenList" v isLoading,-model="fromToken" placeholder="Token" />
       </div>
       <div class="rounded-md flex-bc dark:bg-gray-900">
         <UInput class="flex-auto" variant="none" type="number" size="xl" v-model="amount" placeholder="Please input token amount"></UInput>
       </div>
 
       <div class="flex-bc text-sm px-3">
-        <div>Balance: 0.01233 ETH</div>
-        <div>$1223.222</div>
+        <div class="flex-bc space-x-4">
+          <div>Balance:</div>
+          <div v-if="isLoading">loading...</div>
+          <div v-else>{{ formatUnits(fromTokenBalance, fromToken.decimals, 8) || 0 }} {{ fromToken.label }}</div>
+        </div>
+        <!-- <div>$1223.222</div> -->
       </div>
     </div>
     <div class="flex-cc py-2">

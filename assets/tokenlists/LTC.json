@@ -1,8 +1,10 @@
 [
   {
-    "ticker": "LTC",
     "identifier": "LTC.LTC",
     "decimals": 8,
-    "logoURI": "https://storage.googleapis.com/token-list-swapkit-dev/images/ltc.ltc.png"
+    "label": "LTC",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/ltc.ltc.png"
+    }
   }
 ]
