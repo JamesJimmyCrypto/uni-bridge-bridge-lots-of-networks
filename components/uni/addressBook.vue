@@ -11,7 +11,7 @@ onMounted(() => {
     isShowAddForm = true;
   }
 });
-const doAddAddress = async () => {
+const doAdd = async () => {
   if (addressBookList.find((item) => item.address === address)) {
     return addError("Address already exists");
   }
@@ -28,6 +28,12 @@ const doAddAddress = async () => {
   isShowAddForm = false;
 };
 
+const doRemove = (item) => {
+  useRemove(addressBookList, (i) => i.address === item.address);
+  if (toAddress === item.address) {
+    toAddress = "";
+  }
+};
 const doSelectAddress = (item) => {
   toAddress = item.address;
   isAddressBookOpen = false;
@@ -82,28 +88,25 @@ const toAddressLabel = $computed(() => addressBookList.find((item) => item.addre
             <UInput variant="none" placeholder="Please input your wallet address" v-model="address" class="flex-1" />
           </div>
           <div class="pt-2">
-            <UButton @click="doAddAddress" label="Add new address" block variant="soft" />
+            <UButton @click="doAdd" label="Add new address" block variant="soft" />
           </div>
         </div>
         <div class="space-y-3 py-4">
-          <UButton
-            block
-            :variant="toAddress === item.address ? 'soft' : 'ghost'"
-            v-for="item in addressBookList"
-            :key="item.address"
-            @click="doSelectAddress(item)"
-          >
-            <div class="flex-bc w-full">
-              <div class="flex-1 text-left">
-                {{ item.address }}
+          <div v-for="item in addressBookList" :key="item.address" class="flex-bc space-x-2 group">
+            <UButton class="flex-1" block :variant="toAddress === item.address ? 'soft' : 'ghost'" @click="doSelectAddress(item)">
+              <UIcon v-if="toAddress === item.address" name="material-symbols:check" class="h-5 w-5" />
+              <div v-else class="h-5 w-5"></div>
+              <div class="flex-bc w-full">
+                <div class="flex-1 text-left">
+                  {{ shortAddress(item.address, 30) }}
+                </div>
+                <div class="flex-bc text-xs">
+                  <i class="mr-3">{{ item.label }}</i>
+                </div>
               </div>
-              <div class="flex-bc text-xs">
-                <i class="mr-3">{{ item.label }}</i>
-                <UIcon v-if="toAddress === item.address" name="material-symbols:check" class="h-5 w-5" />
-                <div v-else class="h-5 w-5"></div>
-              </div>
-            </div>
-          </UButton>
+            </UButton>
+            <UButton icon="material-symbols:delete-outline" size="xs" class="opacity-0 group-hover:opacity-100" @click="doRemove(item)" />
+          </div>
         </div>
       </div>
     </UModal>

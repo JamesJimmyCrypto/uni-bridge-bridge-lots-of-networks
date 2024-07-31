@@ -20,7 +20,6 @@ export const swapKitAPIStore = defineStore("swapKitAPIStore", () => {
       "DOGE": "dogecoin"
       }
   };
-
   
 
   const getSupportedProviders = async () => {

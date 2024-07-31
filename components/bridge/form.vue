@@ -8,6 +8,8 @@ const {
   setMaxAmount,
   isLoading,
   fromToken,
+  currentAccount,
+  toAddress,
   toTokenList,
   toToken,
   toTokenBalance,
@@ -18,6 +20,21 @@ const {
   swapDirection,
 } = $(uniConnectorStore());
 
+const { getQuote } = $(swapKitAPIStore());
+
+watchEffect(async () => {
+  const shouldIgnore =
+    isNull(fromAmount) ||
+    fromAmount === "" ||
+    fromAmount === 0 ||
+    isEmpty(fromToken) ||
+    isEmpty(toToken) ||
+    isEmpty(currentAccount) ||
+    isEmpty(toAddress);
+  if (shouldIgnore) return;
+
+  const rz = await getQuote(fromToken.identifier, toToken.identifier, fromAmount, currentAccount, toAddress);
+});
 const submitBtnTxt = $computed(() => {
   return "Switch network";
 });
