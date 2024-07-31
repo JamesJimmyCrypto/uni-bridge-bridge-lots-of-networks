@@ -93,13 +93,11 @@ const allChainList = useSortBy(
   "id"
 );
 
-const { fromChainList, fromChain, fromTokenList, isLoading, fromToken, fromTokenBalance } = $(uniConnectorStore());
+const { fromChainList, fromChain, fromTokenList, setMaxAmount, isLoading, fromToken, fromTokenBalance, fromAmount } = $(uniConnectorStore());
 
 const toChainList = [...allChainList];
 
 let toChain = $ref();
-
-let amount = $ref();
 
 const fromWalletAddressList = ["0xd319905AFEa8401f1eb56fBFD0754853B6B79816", "pSQc9tmQKpw1mqDIOisGL2mXYdRjfldmoLZKkqFhuj4"];
 const fromWalletAddress = $ref();
@@ -131,17 +129,19 @@ const doConnect = async () => {
       </div>
       <div class="flex-bc">
         <BridgeInputMenu :items="fromChainList" v-model="fromChain" placeholder="Select source chain" />
-        <BridgeInputMenu :items="fromTokenList" v isLoading,-model="fromToken" placeholder="Token" />
+        <BridgeInputMenu :items="fromTokenList" v-model="fromToken" placeholder="Token" />
       </div>
       <div class="rounded-md flex-bc dark:bg-gray-900">
-        <UInput class="flex-auto" variant="none" type="number" size="xl" v-model="amount" placeholder="Please input token amount"></UInput>
+        <UInput class="flex-auto" variant="none" type="number" size="xl" v-model="fromAmount" placeholder="Please input token amount"></UInput>
       </div>
 
-      <div class="flex-bc text-sm px-3">
-        <div class="flex-bc space-x-4">
+      <div class="flex-ec px-3">
+        <div class="flex-bc space-x-2 text-sm">
           <div>Balance:</div>
-          <div v-if="isLoading">loading...</div>
-          <div v-else>{{ formatUnits(fromTokenBalance, fromToken.decimals, 8) || 0 }} {{ fromToken.label }}</div>
+          <Loading :isLoading="isLoading" class="flex-bc">
+            <div>{{ formatUnits(fromTokenBalance, fromToken.decimals, 4) || 0 }} {{ fromToken.label }}</div>
+            <UButton variant="link" @click="setMaxAmount">Max</UButton>
+          </Loading>
         </div>
         <!-- <div>$1223.222</div> -->
       </div>

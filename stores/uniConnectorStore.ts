@@ -38,7 +38,7 @@ import bnbToken from "~/assets/tokenlists/bnb.json";
 import bscToken from "~/assets/tokenlists/bsc.json";
 import ethToken from "~/assets/tokenlists/eth.json";
 import { acala, avalanche, arbitrum, dogechain, polygon, bsc, opBNB, mainnet } from "viem/chains";
-import { createWalletClient, custom, publicActions } from 'viem';
+import { createWalletClient, custom, publicActions } from "viem";
 let allChainList = [
   {
     key: "arbitrum",
@@ -149,7 +149,7 @@ allChainList = useMap(allChainList, (item) => {
     label: item.name || item.label,
   };
 });
-allChainList = useSortBy(allChainList, "key");
+allChainList = useSortBy(allChainList, "id");
 
 const allWalletList = [
   {
@@ -189,7 +189,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let currentChainId = $ref("");
   let currentAccount = $ref("");
   let currentWallet = $ref("");
-  let walletClient = $ref()
+  let walletClient = $ref();
 
   const fromChainList = [...allChainList];
   let fromChain = $ref();
@@ -198,49 +198,55 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     return fromChain?.tokens || [];
   });
   let fromToken = $ref("");
-  let fromTokenBalance = $ref(0)
-  watchEffect(async() => {
-    if (!fromToken) return
+  let fromTokenBalance = $ref(0);
+  let fromAmount = $ref(0)
 
-    isLoading = true
+  const setMaxAmount = () => {
+    fromAmount = formatUnits(fromTokenBalance, fromToken.decimals, fromToken.decimals);
+  };
+
+  watchEffect(async () => {
+    if (!fromToken) return;
+
+    fromTokenBalance = 0;
+    isLoading = true;
     if (!fromToken.address) {
       fromTokenBalance = await walletClient.getBalance({
-        address: currentAccount
-      })
-      console.log(`====> fromTokenBalance :`, fromTokenBalance)
-      isLoading = false
-      return
+        address: currentAccount,
+      });
+      isLoading = false;
+      return;
     }
-    
+
     fromTokenBalance = await walletClient.readContract({
       address: fromToken.address,
       functionName: "balanceOf",
       abi: [
         {
-          "inputs": [
+          inputs: [
             {
-              "internalType": "address",
-              "name": "account",
-              "type": "address"
-            }
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
           ],
-          "name": "balanceOf",
-          "outputs": [
+          name: "balanceOf",
+          outputs: [
             {
-              "internalType": "uint256",
-              "name": "",
-              "type": "uint256"
-            }
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
           ],
-          "stateMutability": "view",
-          "type": "function"
+          stateMutability: "view",
+          type: "function",
         },
       ],
       args: [currentAccount],
-    })
-    console.log(`====> fromTokenBalance :`, fromTokenBalance)
-    isLoading = false
-  })
+    });
+    console.log(`====> fromTokenBalance :`, fromTokenBalance);
+    isLoading = false;
+  });
 
   const fromWalletAppList = $computed(() => {
     if (!fromChain) {
@@ -272,7 +278,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   function listProviders() {
     if (providers.length > 0) return;
     function onAnnouncement(event: EIP6963AnnounceProviderEvent) {
-      console.log(`====> event.detail :`, event.detail);
+      // console.log(`====> event.detail :`, event.detail);
       if (providers.map((p) => p.info.uuid).includes(event.detail.info.uuid)) return;
 
       providers = [...providers, event.detail];
@@ -344,9 +350,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
         account: currentAccount,
         chain: fromChain,
         transport: custom(wallet.provider),
-      }).extend(publicActions)
-      // await forceSwitchChain(fromChain, currentWallet)
-      console.log(`====> currentWallet :`, currentWallet);
+      }).extend(publicActions);
     } catch (error) {
       // TODO: show error message to user
       console.error("Failed to connect to provider:", error);
@@ -374,6 +378,8 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     isLoading,
     currentChainId,
     forceSwitchChain,
+    setMaxAmount,
+    fromAmount,
     isWrongNetwork,
     currentAccount,
     currentWallet,

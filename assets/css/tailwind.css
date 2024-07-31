@@ -12,4 +12,7 @@
   .flex-bc {
     @apply flex justify-between items-center;
   }
+  .flex-ec {
+    @apply flex justify-end items-center;
+  }
 }
