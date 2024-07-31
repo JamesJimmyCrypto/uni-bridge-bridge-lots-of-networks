@@ -1,0 +1,299 @@
+[
+  {
+    "identifier": "THOR.RUNE",
+    "decimals": 8,
+    "label": "RUNE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/thor.rune.png"
+    }
+  },
+  {
+    "identifier": "AVAX/AVAX",
+    "decimals": 8,
+    "label": "AVAX",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/avax.png"
+    }
+  },
+  {
+    "address": "0xfe6b19286885a4f7f55adad09c3cd1f906d2478f",
+    "identifier": "AVAX/SOL-0xfe6b19286885a4f7f55adad09c3cd1f906d2478f",
+    "decimals": 8,
+    "label": "SOL",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/sol-0xfe6b19286885a4f7f55adad09c3cd1f906d2478f.png"
+    }
+  },
+  {
+    "address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+    "identifier": "AVAX/USDC-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+    "decimals": 8,
+    "label": "USDC",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/usdc-0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e.png"
+    }
+  },
+  {
+    "address": "0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+    "identifier": "AVAX/USDT-0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7",
+    "decimals": 8,
+    "label": "USDT",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/avax/usdt-0x9702230a8ea53601f5cd2dc00fdbc13d4df4a8c7.png"
+    }
+  },
+  {
+    "identifier": "BCH/BCH",
+    "decimals": 8,
+    "label": "BCH",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/bch/bch.png"
+    }
+  },
+  {
+    "identifier": "BNB/BNB",
+    "decimals": 8,
+    "label": "BNB",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/bnb/bnb.png"
+    }
+  },
+  {
+    "identifier": "BTC/BTC",
+    "decimals": 8,
+    "label": "BTC",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/btc/btc.png"
+    }
+  },
+  {
+    "identifier": "DOGE/DOGE",
+    "decimals": 8,
+    "label": "DOGE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/doge/doge.png"
+    }
+  },
+  {
+    "address": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "identifier": "ETH/AAVE-0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+    "decimals": 8,
+    "label": "AAVE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/aave-0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9.png"
+    }
+  },
+  {
+    "address": "0x6b175474e89094c44da98b954eedeac495271d0f",
+    "identifier": "ETH/DAI-0x6b175474e89094c44da98b954eedeac495271d0f",
+    "decimals": 8,
+    "label": "DAI",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/dai-0x6b175474e89094c44da98b954eedeac495271d0f.png"
+    }
+  },
+  {
+    "address": "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+    "identifier": "ETH/DPI-0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+    "decimals": 8,
+    "label": "DPI",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/dpi-0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b.png"
+    }
+  },
+  {
+    "identifier": "ETH/ETH",
+    "decimals": 8,
+    "label": "ETH",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/eth.png"
+    }
+  },
+  {
+    "address": "0x826180541412d574cf1336d22c0c0a287822678a",
+    "identifier": "ETH/FLIP-0x826180541412d574cf1336d22c0c0a287822678a",
+    "decimals": 8,
+    "label": "FLIP",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/flip-0x826180541412d574cf1336d22c0c0a287822678a.png"
+    }
+  },
+  {
+    "address": "0xc770eefad204b5180df6a14ee197d99d808ee52d",
+    "identifier": "ETH/FOX-0xc770eefad204b5180df6a14ee197d99d808ee52d",
+    "decimals": 8,
+    "label": "FOX",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/fox-0xc770eefad204b5180df6a14ee197d99d808ee52d.png"
+    }
+  },
+  {
+    "address": "0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
+    "identifier": "ETH/GUSD-0x056fd409e1d7a124bd7017459dfea2f387b6d5cd",
+    "decimals": 8,
+    "label": "GUSD",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/gusd-0x056fd409e1d7a124bd7017459dfea2f387b6d5cd.png"
+    }
+  },
+  {
+    "address": "0x6c6ee5e31d828de241282b9606c8e98ea48526e2",
+    "identifier": "ETH/HOT-0x6c6ee5e31d828de241282b9606c8e98ea48526e2",
+    "decimals": 8,
+    "label": "HOT",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/hot-0x6c6ee5e31d828de241282b9606c8e98ea48526e2.png"
+    }
+  },
+  {
+    "address": "0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c",
+    "identifier": "ETH/KYL-0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c",
+    "decimals": 8,
+    "label": "KYL",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/kyl-0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c.png"
+    }
+  },
+  {
+    "address": "0x2c06ba9e7f0daccbc1f6a33ea67e85bb68fbee3a",
+    "identifier": "ETH/LENDS-0x2c06ba9e7f0daccbc1f6a33ea67e85bb68fbee3a",
+    "decimals": 8,
+    "label": "LENDS",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/lends-0x2c06ba9e7f0daccbc1f6a33ea67e85bb68fbee3a.png"
+    }
+  },
+  {
+    "address": "0x514910771af9ca656af840dff83e8264ecf986ca",
+    "identifier": "ETH/LINK-0x514910771af9ca656af840dff83e8264ecf986ca",
+    "decimals": 8,
+    "label": "LINK",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/link-0x514910771af9ca656af840dff83e8264ecf986ca.png"
+    }
+  },
+  {
+    "address": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "identifier": "ETH/LUSD-0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
+    "decimals": 8,
+    "label": "LUSD",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/lusd-0x5f98805a4e8be255a32880fdec7f6728c6568ba0.png"
+    }
+  },
+  {
+    "address": "0x5eaa69b29f99c84fe5de8200340b4e9b4ab38eac",
+    "identifier": "ETH/RAZE-0x5eaa69b29f99c84fe5de8200340b4e9b4ab38eac",
+    "decimals": 8,
+    "label": "RAZE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/raze-0x5eaa69b29f99c84fe5de8200340b4e9b4ab38eac.png"
+    }
+  },
+  {
+    "address": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+    "identifier": "ETH/SNX-0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f",
+    "decimals": 8,
+    "label": "SNX",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/snx-0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f.png"
+    }
+  },
+  {
+    "address": "0x108a850856db3f85d0269a2693d896b394c80325",
+    "identifier": "ETH/TGT-0x108a850856db3f85d0269a2693d896b394c80325",
+    "decimals": 8,
+    "label": "TGT",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/tgt-0x108a850856db3f85d0269a2693d896b394c80325.png"
+    }
+  },
+  {
+    "address": "0xa5f2211b9b8170f694421f2046281775e8468044",
+    "identifier": "ETH/THOR-0xa5f2211b9b8170f694421f2046281775e8468044",
+    "decimals": 8,
+    "label": "THOR",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/thor-0xa5f2211b9b8170f694421f2046281775e8468044.png"
+    }
+  },
+  {
+    "address": "0xd13c7342e1ef687c5ad21b27c2b65d772cab5c8c",
+    "identifier": "ETH/UOS-0xd13c7342e1ef687c5ad21b27c2b65d772cab5c8c",
+    "decimals": 8,
+    "label": "UOS",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/uos-0xd13c7342e1ef687c5ad21b27c2b65d772cab5c8c.png"
+    }
+  },
+  {
+    "address": "0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+    "identifier": "ETH/USDP-0x8e870d67f660d95d5be530380d0ec0bd388289e1",
+    "decimals": 8,
+    "label": "USDP",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/usdp-0x8e870d67f660d95d5be530380d0ec0bd388289e1.png"
+    }
+  },
+  {
+    "address": "0x815c23eca83261b6ec689b60cc4a58b54bc24d8d",
+    "identifier": "ETH/VTHOR-0x815c23eca83261b6ec689b60cc4a58b54bc24d8d",
+    "decimals": 8,
+    "label": "VTHOR",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/vthor-0x815c23eca83261b6ec689b60cc4a58b54bc24d8d.png"
+    }
+  },
+  {
+    "address": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "identifier": "ETH/WBTC-0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+    "decimals": 8,
+    "label": "WBTC",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/wbtc-0x2260fac5e5542a773aa44fbcfedf7c193bc2c599.png"
+    }
+  },
+  {
+    "address": "0x72b886d09c117654ab7da13a14d603001de0b777",
+    "identifier": "ETH/XDEFI-0x72b886d09c117654ab7da13a14d603001de0b777",
+    "decimals": 8,
+    "label": "XDEFI",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/xdefi-0x72b886d09c117654ab7da13a14d603001de0b777.png"
+    }
+  },
+  {
+    "address": "0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c",
+    "identifier": "ETH/XRUNE-0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c",
+    "decimals": 8,
+    "label": "XRUNE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/xrune-0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c.png"
+    }
+  },
+  {
+    "address": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+    "identifier": "ETH/YFI-0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+    "decimals": 8,
+    "label": "YFI",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/eth/yfi-0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e.png"
+    }
+  },
+  {
+    "identifier": "GAIA/ATOM",
+    "decimals": 8,
+    "label": "ATOM",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/gaia/atom.png"
+    }
+  },
+  {
+    "identifier": "LTC/LTC",
+    "decimals": 8,
+    "label": "LTC",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/ltc/ltc.png"
+    }
+  }
+]

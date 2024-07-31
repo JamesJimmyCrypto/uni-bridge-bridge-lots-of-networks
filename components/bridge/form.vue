@@ -30,17 +30,23 @@ const fromAmountInvalidate = $computed(() => {
 });
 
 let isQuoteLoading = $ref(false);
+let quoteError = $ref("");
 watchEffect(async () => {
   const shouldIgnore = fromAmountInvalidate || isEmpty(fromToken) || isEmpty(toToken) || isEmpty(currentAccount) || isEmpty(toAddress);
   if (shouldIgnore) return;
 
   isQuoteLoading = true;
+  quoteError = "";
 
   const rz = await getQuote(fromToken.identifier, toToken.identifier, fromAmount, currentAccount, toAddress);
   if (rz.quoteId) {
     const route = useGet(rz, "routes[0]");
     toAmount = route.expectedOutput;
     toAmountUSD = route.expectedOutputUSD;
+  } else {
+    toAmount = 0;
+    toAmountUSD = 0;
+    quoteError = rz.error;
   }
   isQuoteLoading = false;
 });
@@ -53,16 +59,19 @@ const submitBtnTxt = $computed(() => {
   if (isEmpty(toChain)) return "Please select chain in To area";
   if (isEmpty(toToken)) return "Please select token in To area";
   if (isQuoteLoading) return `Fetching a quote for ${fromChain.key}.${fromToken.label} to ${toChain.key}.${toToken.label}`;
+  if (quoteError) return quoteError;
 
   return "Do Bridge";
 });
 const isDisabled = $computed(() => {
+  if (toAmount === 0) return true;
   if (isQuoteLoading) return true;
   if (isEmpty(fromToken)) return true;
   if (fromAmountInvalidate) return true;
   if (isEmpty(toAddress)) return true;
   if (isEmpty(toChain)) return true;
   if (isEmpty(toToken)) return true;
+  if (quoteError) return true;
 
   return false;
 });

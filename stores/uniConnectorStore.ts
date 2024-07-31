@@ -32,12 +32,20 @@ interface EIP1193Provider {
   request: (request: { method: string; params?: Array<unknown> }) => Promise<unknown>;
 }
 
-import arbitrumToken from "~/assets/tokenlists/arbitrum.json";
-import avalancheToken from "~/assets/tokenlists/avalanche.json";
+import arbToken from "~/assets/tokenlists/arb.json";
+import avaxToken from "~/assets/tokenlists/avax.json";
 import bnbToken from "~/assets/tokenlists/bnb.json";
 import bscToken from "~/assets/tokenlists/bsc.json";
 import ethToken from "~/assets/tokenlists/eth.json";
 import btcToken from "~/assets/tokenlists/btc.json";
+import ltcToken from "~/assets/tokenlists/ltc.json";
+import bchToken from "~/assets/tokenlists/bch.json";
+import dotToken from "~/assets/tokenlists/dot.json";
+import dashToken from "~/assets/tokenlists/dash.json";
+import kujiToken from "~/assets/tokenlists/kuji.json";
+import mayaToken from "~/assets/tokenlists/maya.json";
+import thorToken from "~/assets/tokenlists/thor.json";
+
 import { acala, avalanche, arbitrum, dogechain, polygon, bsc, opBNB, mainnet } from "viem/chains";
 import { createWalletClient, custom, publicActions } from "viem";
 let allChainList = [
@@ -45,25 +53,37 @@ let allChainList = [
     key: "arbitrum",
     icon: "token-branded:arbi",
     ...arbitrum,
-    tokens: arbitrumToken,
+    tokens: arbToken,
   },
-  {
-    key: "acala",
-    avatar: {
-      src: "https://acala.network/assets/Acala%20Gradient-tyIktH2a.png",
-    },
-    ...acala,
-  },
+  // {
+  //   key: "acala",
+  //   avatar: {
+  //     src: "https://acala.network/assets/Acala%20Gradient-tyIktH2a.png",
+  //   },
+  //   ...acala,
+  // },
+  //  {
+  //   key: "polygon",
+  //   icon: "token-branded:polygon-pos",
+  //   ...polygon,
+  // },
+  // {
+  //   key: "dogechain",
+  //   avatar: {
+  //     src: "https://ugc.production.linktr.ee/tPCVQbdjQrCpobdIcJZp_ZZ28y10j9t75pLGN?io=true&size=avatar-v3_0",
+  //   },
+  //   ...dogechain,
+  // },
+  // {
+  //   key: "arweave",
+  //   label: "Arweave",
+  //   icon: "token:ar",
+  // },
   {
     key: "avalanche",
     icon: "token-branded:avax",
     ...avalanche,
-    tokens: avalancheToken,
-  },
-  {
-    key: "polygon",
-    icon: "token-branded:polygon-pos",
-    ...polygon,
+    tokens: avaxToken,
   },
   {
     key: "bsc",
@@ -78,13 +98,6 @@ let allChainList = [
     tokens: bnbToken,
   },
   {
-    key: "dogechain",
-    avatar: {
-      src: "https://ugc.production.linktr.ee/tPCVQbdjQrCpobdIcJZp_ZZ28y10j9t75pLGN?io=true&size=avatar-v3_0",
-    },
-    ...dogechain,
-  },
-  {
     key: "eth",
     icon: "token-branded:eth",
     ...mainnet,
@@ -96,41 +109,36 @@ let allChainList = [
     icon: "token-branded:btc",
     tokens: btcToken,
   },
-  // not done
-  {
-    key: "arweave",
-    label: "Arweave",
-    icon: "token:ar",
-  },
-
   {
     key: "bch",
     label: "BCH",
     icon: "token-branded:bch",
+    tokens: bchToken,
   },
-
-  // {
-  //   key: "dash",
-  //   label: "DASH",
-  //   icon: "token-branded:dash",
-  // },
-
   {
     id: "dot",
     key: "dot",
     label: "DOT",
     icon: "token-branded:polkadot",
+    tokens: dotToken,
   },
-
+   {
+    key: "dash",
+    label: "DASH",
+    icon: "token-branded:dash",
+    tokens: dashToken,
+  },
   {
     key: "kuji",
     label: "KUJI",
     icon: "token-branded:kujira",
+    tokens: kujiToken,
   },
   {
     key: "ltc",
     label: "LTC",
     icon: "token-branded:ltc",
+    tokens: ltcToken,
   },
   {
     key: "maya",
@@ -138,11 +146,13 @@ let allChainList = [
     avatar: {
       src: "https://storage.googleapis.com/token-list-swapkit-dev/images/maya.cacao.png",
     },
+    tokens: mayaToken,
   },
   {
     key: "thor",
     label: "THOR",
     icon: "token-branded:thor",
+    tokens: thorToken,
   },
 ];
 

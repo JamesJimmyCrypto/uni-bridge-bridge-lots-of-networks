@@ -1,0 +1,10 @@
+[
+  {
+    "identifier": "DOGE.DOGE",
+    "decimals": 8,
+    "label": "DOGE",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/doge.doge.png"
+    }
+  }
+]

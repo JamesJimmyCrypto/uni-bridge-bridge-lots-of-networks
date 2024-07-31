@@ -1,0 +1,10 @@
+[
+  {
+    "identifier": "BCH.BCH",
+    "decimals": 8,
+    "label": "BCH",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/bch.bch.png"
+    }
+  }
+]

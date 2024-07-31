@@ -1,0 +1,10 @@
+[
+  {
+    "identifier": "LTC.LTC",
+    "decimals": 8,
+    "label": "LTC",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/ltc.ltc.png"
+    }
+  }
+]

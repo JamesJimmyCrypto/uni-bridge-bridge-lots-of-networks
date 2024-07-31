@@ -1,0 +1,10 @@
+[
+  {
+    "identifier": "GAIA.ATOM",
+    "decimals": 6,
+    "label": "ATOM",
+    "avatar": {
+      "src": "https://storage.googleapis.com/token-list-swapkit-dev/images/gaia.atom.png"
+    }
+  }
+]
