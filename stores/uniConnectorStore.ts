@@ -191,8 +191,8 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let currentAccount = $ref("");
   let currentWallet = $ref("");
   let walletClient = $ref();
-  let currentRdns = $(useLocalStorage('uni-connector-current-rdns', ''))
-  let fromChainId = $(useLocalStorage('uni-connector-from-chain-id', 0))
+  let currentRdns = $(useLocalStorage('uni-current-rdns', ''))
+  let fromChainId = $(useLocalStorage('uni-from-chain-id', 0))
 
   // from
   const fromChainList = [...allChainList];
@@ -201,7 +201,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   const fromTokenList = $computed(() => {
     return fromChain?.tokens || [];
   });
-  let fromToken = $ref("");
+  let fromToken = $ref({});
   let fromTokenBalance = $ref(0);
   let fromAmount = $ref(0);
 
@@ -210,7 +210,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   };
   let isLoadingFromTokenBalance = $ref(false);
   watchEffect(async () => {
-    if (!fromToken) return;
+    if (isEmpty(fromToken)) return;
 
     fromTokenBalance = 0;
     isLoadingFromTokenBalance = true;
@@ -289,13 +289,13 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   const toTokenList = $computed(() => {
     return toChain?.tokens || [];
   });
-  let toToken = $ref("");
+  let toToken = $ref({});
   let toAmount = $ref(0);
   let toTokenBalance = $ref(0);
 
   let isLoadingToTokenBalance = $ref(false);
   watchEffect(async () => {
-    if (!toToken) return;
+    if (isEmpty(toToken)) return;
 
     toTokenBalance = 0;
     isLoadingToTokenBalance = true;
@@ -447,7 +447,10 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     return fromChain.id !== currentChainId;
   });
 
+  let toAddress = $(useLocalStorage("uni-toAddress", "", {initOnMounted: true}));
+
   return $$({
+    toAddress,
     isLoading,
     currentChainId,
     forceSwitchChain,

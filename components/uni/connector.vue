@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="uni-connector">
+  <div>
     <UButton color="red" v-if="isWrongNetwork" block @click="forceSwitchChain(fromChain, currentWallet)"> Switch network </UButton>
     <UButton class="group" v-else-if="currentAccount" color="white" block @click="isConnectorOpen = true">
       <div class="hidden group-hover:block">Change wallet</div>

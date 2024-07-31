@@ -1,37 +1,53 @@
 <script setup lang="ts">
-const {
-  isAddressBookOpen,
-  currentAccount,
-  currentWallet,
-  isWrongNetwork,
-  forceSwitchChain,
-  fromChain,
-  connectOrJump,
-  fromWalletAppList,
-  fromChainList,
-  isLoading,
-} = $(uniConnectorStore());
+let { isAddressBookOpen, toAddress } = $(uniConnectorStore());
+const { addError, addSuccess } = $(notificationStore());
 
+let addressBookList = $(useLocalStorage("uni-addressBookList", []));
 let address = $ref("");
-let addressLabel = $ref("");
+let label = $ref("");
 let isShowAddForm = $ref(false);
-const doAddAddress = async () => {};
+onMounted(() => {
+  if (addressBookList.length === 0) {
+    isShowAddForm = true;
+  }
+});
+const doAddAddress = async () => {
+  if (addressBookList.find((item) => item.address === address)) {
+    return addError("Address already exists");
+  }
+  if (addressBookList.find((item) => item.label === label)) {
+    return addError("Label already exists");
+  }
+  addressBookList.push({
+    address,
+    label,
+  });
+  addSuccess("Address added successfully");
+  address = "";
+  label = "";
+  isShowAddForm = false;
+};
+
+const doSelectAddress = (item) => {
+  toAddress = item.address;
+  isAddressBookOpen = false;
+};
+
+const toAddressLabel = $computed(() => addressBookList.find((item) => item.address === toAddress)?.label);
 </script>
 
 <template>
   <div>
-    <!-- <UButton color="red" v-if="isWrongNetwork" block @click="forceSwitchChain(fromChain, currentWallet)"> Switch network </UButton>
-    <UButton class="group" v-else-if="currentAccount" color="white" block @click="isAddressBookOpen = true">
-      <div class="hidden group-hover:block">Change wallet</div>
+    <UButton class="group" v-if="toAddress" color="white" block @click="isAddressBookOpen = true">
+      <div class="hidden group-hover:block">Change address</div>
       <div class="flex-bc space-x-1 group-hover:hidden">
         <div>
-          {{ shortAddress(currentAccount) }}
+          {{ shortAddress(toAddress) }}
         </div>
-        <Avatar v-bind="currentWallet" />
+        <div>[{{ toAddressLabel }}]</div>
       </div>
     </UButton>
-    <UButton v-else label="Add Address" icon="material-symbols:add" :loading="isLoading" color="primary" @click="isAddressBookOpen = true" /> -->
-    <UButton label="Add Address" icon="material-symbols:add" :loading="isLoading" color="primary" @click="isAddressBookOpen = true" />
+    <UButton v-else label="Add Address" icon="material-symbols:add" color="primary" @click="isAddressBookOpen = true" />
 
     <UModal v-model="isAddressBookOpen">
       <div class="p-6 relative">
@@ -46,7 +62,7 @@ const doAddAddress = async () => {};
           class="top-6 right-6 absolute"
           :ui="{ rounded: 'rounded-full' }"
         />
-        <div v-if="isShowAddForm" class="border rounded-md space-y-2 border-gray-700 text-sm p-4 text-gray-400 relative">
+        <div v-if="isShowAddForm" class="border rounded-md space-y-2 border-gray-700 text-sm mb-4 p-4 text-gray-400 relative">
           <UButton
             icon="material-symbols:close-rounded"
             size="xs"
@@ -58,7 +74,7 @@ const doAddAddress = async () => {};
           />
           <div class="flex-bc">
             <div class="w-1/5">Label</div>
-            <UInput variant="none" placeholder="Please input your address label" v-model="addressLabel" class="flex-1" />
+            <UInput variant="none" placeholder="Please input your address label" v-model="label" class="flex-1" />
           </div>
           <UDivider />
           <div class="flex-bc">
@@ -69,18 +85,23 @@ const doAddAddress = async () => {};
             <UButton @click="doAddAddress" label="Add new address" block variant="soft" />
           </div>
         </div>
-        <div class="space-y-3 py-8">
-          <div v-if="fromWalletAppList.length === 0" class="text-center text-red-400">Please select chain first.</div>
-          <UButton block variant="soft" v-for="item in fromWalletAppList" :key="item.rdns" @click="connectOrJump(item.rdns)">
-            <template #leading>
-              <UIcon v-if="item?.icon" :name="(item.icon as string)" class="h-5 w-5" />
-              <UAvatar v-else-if="item?.avatar" v-bind="(item.avatar as Avatar)" size="2xs" />
-            </template>
+        <div class="space-y-3 py-4">
+          <UButton
+            block
+            :variant="toAddress === item.address ? 'soft' : 'ghost'"
+            v-for="item in addressBookList"
+            :key="item.address"
+            @click="doSelectAddress(item)"
+          >
             <div class="flex-bc w-full">
-              <div>
-                {{ item.label }}
+              <div class="flex-1 text-left">
+                {{ item.address }}
               </div>
-              <div class="flex-bc text-xs" v-if="!item.isInstalled">Click to install <UIcon name="pajamas:external-link" class="h-5 ml-2 w-5" /></div>
+              <div class="flex-bc text-xs">
+                <i class="mr-3">{{ item.label }}</i>
+                <UIcon v-if="toAddress === item.address" name="material-symbols:check" class="h-5 w-5" />
+                <div v-else class="h-5 w-5"></div>
+              </div>
             </div>
           </UButton>
         </div>
