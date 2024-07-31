@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { parseGwei } from "viem";
 const {
   fromChainList,
   fromChain,
@@ -11,16 +12,20 @@ const {
   currentAccount,
   toAddress,
   toTokenList,
+  walletClient,
+  erc20ABI,
   toToken,
+  writeContract,
   toTokenBalance,
+  doLoadFromTokenBalance,
   fromTokenBalance,
-  fromAmount,
   isLoadingFromTokenBalance,
   swapDirection,
 } = $(uniConnectorStore());
 
-let { toAmount, isConnectorOpen } = $(uniConnectorStore());
+let { fromAmount, toAmount, isConnectorOpen } = $(uniConnectorStore());
 
+const { addError, addSuccess } = $(notificationStore());
 const { getQuote } = $(swapKitAPIStore());
 
 let toAmountUSD = $ref(0);
@@ -31,6 +36,19 @@ const fromAmountInvalidate = $computed(() => {
 
 let isQuoteLoading = $ref(false);
 let quoteError = $ref("");
+let approvalTarget = $ref("");
+let approvalToken = $ref("");
+let allowance = $ref(0n);
+let transaction = $ref({});
+
+const doQueryAllowance = async () => {
+  allowance = await walletClient.readContract({
+    address: fromToken.address,
+    functionName: "allowance",
+    abi: erc20ABI,
+    args: [currentAccount, approvalTarget],
+  });
+};
 watchEffect(async () => {
   const shouldIgnore = fromAmountInvalidate || isEmpty(fromToken) || isEmpty(toToken) || isEmpty(currentAccount) || isEmpty(toAddress);
   if (shouldIgnore) return;
@@ -43,12 +61,39 @@ watchEffect(async () => {
     const route = useGet(rz, "routes[0]");
     toAmount = route.expectedOutput;
     toAmountUSD = route.expectedOutputUSD;
+    approvalTarget = route.approvalTarget;
+    approvalToken = route.approvalToken;
+    transaction = route.transaction;
+
+    if (fromToken.address) {
+      await doQueryAllowance();
+    } else {
+      allowance = BigInt(Number.MAX_SAFE_INTEGER);
+    }
   } else {
     toAmount = 0;
     toAmountUSD = 0;
     quoteError = rz.error;
+    approvalTarget = "";
+    approvalToken = "";
+    allowance = 0n;
+    transaction = {};
   }
   isQuoteLoading = false;
+});
+
+let isApprovalLoading = $ref(false);
+let isBridging = $ref(false);
+const isSubmitBtnLoading = $computed(() => {
+  return isQuoteLoading || isApprovalLoading || isBridging;
+});
+
+const isRequireApproval = $computed(() => {
+  if (isEmpty(approvalToken)) return false;
+  if (fromAmount === "") return false;
+
+  const amount = parseUnits(fromAmount.toString(), fromToken.decimals);
+  return isSameAddress(approvalToken, fromToken.address) && allowance < amount;
 });
 
 const submitBtnTxt = $computed(() => {
@@ -60,6 +105,7 @@ const submitBtnTxt = $computed(() => {
   if (isEmpty(toToken)) return "Please select token in To area";
   if (isQuoteLoading) return `Fetching a quote for ${fromChain.key}.${fromToken.label} to ${toChain.key}.${toToken.label}`;
   if (quoteError) return quoteError;
+  if (isRequireApproval) return "Approve Allowance";
 
   return "Do Bridge";
 });
@@ -75,6 +121,23 @@ const isDisabled = $computed(() => {
 
   return false;
 });
+
+const doApproveAllowance = async () => {
+  isApprovalLoading = true;
+  const amount = parseUnits(fromAmount.toString(), fromToken.decimals);
+  try {
+    const { tx, result } = await writeContract(approvalToken, erc20ABI, "approve", [approvalTarget, amount]);
+    setTimeout(async () => {
+      await doQueryAllowance();
+    }, 4000);
+  } catch (err) {
+    addError("Error", err);
+    console.log(`====> err :`, err.message);
+  }
+
+  isApprovalLoading = false;
+};
+
 const doSubmit = async () => {
   if (isDisabled || isQuoteLoading) return;
 
@@ -82,7 +145,31 @@ const doSubmit = async () => {
     isConnectorOpen = true;
     return;
   }
-  console.log(`====> submitBtnTxt :`, submitBtnTxt);
+  if (submitBtnTxt === "Approve Allowance") {
+    await doApproveAllowance();
+    return;
+  }
+
+  isBridging = true;
+  try {
+    const data = usePick(transaction, ["data", "to", "gasPrice", "value"]);
+    const hash = await walletClient.sendTransaction(data);
+    const tx = await walletClient.waitForTransactionReceipt({
+      hash,
+    });
+    if (tx.status !== "success") {
+      addError("Do Bridge Error", tx);
+      throw new Error(tx);
+    }
+    addSuccess("Do Bridge Success");
+  } catch (err) {
+    console.log(`====> err :`, err);
+    addError(err.message);
+  }
+  isBridging = false;
+  setTimeout(async () => {
+    await doLoadFromTokenBalance();
+  }, 4000);
 };
 </script>
 
@@ -133,7 +220,7 @@ const doSubmit = async () => {
         </div>
       </div>
     </div>
-    <UButton :disabled="isDisabled" block :loading="isQuoteLoading" size="xl" :color="isDisabled ? 'red' : 'lime'" @click="doSubmit">{{
+    <UButton :disabled="isDisabled" block :loading="isSubmitBtnLoading" size="xl" :color="isDisabled ? 'red' : 'lime'" @click="doSubmit">{{
       submitBtnTxt
     }}</UButton>
   </div>

@@ -22,7 +22,7 @@ const doAdd = async () => {
     address,
     label,
   });
-  addSuccess("Address added successfully");
+  // addSuccess("Address added successfully");
   address = "";
   label = "";
   isShowAddForm = false;

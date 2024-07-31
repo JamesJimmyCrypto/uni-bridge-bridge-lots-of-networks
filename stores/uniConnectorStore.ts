@@ -122,7 +122,7 @@ let allChainList = [
     icon: "token-branded:polkadot",
     tokens: dotToken,
   },
-   {
+  {
     key: "dash",
     label: "DASH",
     icon: "token-branded:dash",
@@ -153,6 +153,76 @@ let allChainList = [
     label: "THOR",
     icon: "token-branded:thor",
     tokens: thorToken,
+  },
+];
+
+const erc20ABI = [
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "approve",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+    ],
+    name: "allowance",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
 ];
 
@@ -204,8 +274,8 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let currentAccount = $ref("");
   let currentWallet = $ref("");
   let walletClient = $ref();
-  let currentRdns = $(useLocalStorage('uni-current-rdns', ''))
-  let fromChainId = $(useLocalStorage('uni-from-chain-id', 0))
+  let currentRdns = $(useLocalStorage("uni-current-rdns", ""));
+  let fromChainId = $(useLocalStorage("uni-from-chain-id", 0));
 
   // from
   const fromChainList = [...allChainList];
@@ -224,20 +294,16 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let isLoadingFromTokenBalance = $ref(false);
   watch($$(fromChain), () => {
     // fromToken = {};
-    fromTokenBalance = 0
+    fromTokenBalance = 0;
     // fromAmount = 0
-  })
-
+  });
 
   const isWrongNetwork = $computed(() => {
     if (!fromChain) return false;
     return fromChain.id !== currentChainId;
   });
 
-  watchEffect(async () => {
-    if (isWrongNetwork) return;
-    if (isEmpty(fromToken)) return;
-
+  const doLoadFromTokenBalance = async () => {
     fromTokenBalance = 0;
     isLoadingFromTokenBalance = true;
     if (!fromToken.address) {
@@ -251,30 +317,16 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     fromTokenBalance = await walletClient.readContract({
       address: fromToken.address,
       functionName: "balanceOf",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "balanceOf",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
+      abi: erc20ABI,
       args: [currentAccount],
     });
     isLoadingFromTokenBalance = false;
+  }
+  watchEffect(async () => {
+    if (isWrongNetwork) return;
+    if (isEmpty(fromToken)) return;
+
+    await doLoadFromTokenBalance()
   });
 
   const fromWalletAppList = $computed(() => {
@@ -371,10 +423,10 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
 
       providers = [...providers, event.detail];
       const { rdns } = event.detail.info;
-      
+
       if (currentRdns === rdns && fromChainId !== 0) {
         fromChain = fromChainList.find((item) => item.id === fromChainId);
-        connectOrJump(currentRdns)
+        connectOrJump(currentRdns);
       }
     }
 
@@ -445,11 +497,11 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
         chain: fromChain,
         transport: custom(wallet.provider),
       }).extend(publicActions);
-      return true
+      return true;
     } catch (error) {
       // TODO: show error message to user
       console.error("Failed to connect to provider:", error);
-      return false
+      return false;
     }
   };
 
@@ -458,10 +510,10 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     if (walletAppMap[rdns]?.isInstalled) {
       const rz = connectWithProvider(walletAppMap[rdns]);
       if (rz) {
-        currentRdns = rdns
-        fromChainId = fromChain.id
+        currentRdns = rdns;
+        fromChainId = fromChain.id;
       }
-      return
+      return;
     }
     // do jump
     const url = walletAppMap[rdns].url;
@@ -470,14 +522,38 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     }
   };
 
-  let toAddress = $(useLocalStorage("uni-toAddress", "", {initOnMounted: true}));
+  let toAddress = $(useLocalStorage("uni-toAddress", "", { initOnMounted: true }));
 
   const swapDirection = () => {
     [fromToken, toToken] = [toToken, fromToken];
     [fromChain, toChain] = [toChain, fromChain];
     [fromAmount, toAmount] = [toAmount, fromAmount];
   };
-  
+
+  const writeContract = async (address, abi, functionName, args) => {
+    try {
+      const { request, result } = await walletClient.simulateContract({
+        address,
+        abi,
+        functionName,
+        args,
+      })
+      const hash = await walletClient.writeContract(request);
+      const tx = await walletClient.waitForTransactionReceipt({
+        hash,
+      });
+      if (tx.status !== "success") {
+        throw new Error("tx error");
+      }
+      return {
+        tx,
+        result,
+      };
+    } catch (err) {
+      throw new Error(err);
+    }
+  } 
+
   return $$({
     swapDirection,
     toAddress,
@@ -492,9 +568,13 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     toTokenList,
     toToken,
     listProviders,
+    doLoadFromTokenBalance,
+    writeContract,
     connectOrJump,
     providers,
     isConnected,
+    walletClient,
+    erc20ABI,
     address,
     isConnectorOpen,
     isAddressBookOpen,
