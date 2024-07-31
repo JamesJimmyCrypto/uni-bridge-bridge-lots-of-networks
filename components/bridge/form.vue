@@ -13,14 +13,17 @@ const {
   toTokenList,
   toToken,
   toTokenBalance,
-  toAmount,
   fromTokenBalance,
   fromAmount,
   isLoadingFromTokenBalance,
   swapDirection,
 } = $(uniConnectorStore());
 
+let { toAmount } = $(uniConnectorStore());
+
 const { getQuote } = $(swapKitAPIStore());
+
+let toAmountUSD = $ref(0);
 
 watchEffect(async () => {
   const shouldIgnore =
@@ -34,6 +37,11 @@ watchEffect(async () => {
   if (shouldIgnore) return;
 
   const rz = await getQuote(fromToken.identifier, toToken.identifier, fromAmount, currentAccount, toAddress);
+  if (rz.quoteId) {
+    const route = useGet(rz, "routes[0]");
+    toAmount = route.expectedOutput;
+    toAmountUSD = route.expectedOutputUSD;
+  }
 });
 const submitBtnTxt = $computed(() => {
   return "Switch network";
@@ -78,8 +86,11 @@ const doSubmit = async () => {
         <BridgeInputMenu :items="toTokenList" v-model="toToken" placeholder="Select token" />
       </div>
       <UInput class="flex-auto" type="number" size="xl" v-model="toAmount" placeholder="Please input token amount"></UInput>
-      <div class="flex-ec px-3" v-if="false">
-        <div class="flex-bc space-x-2 text-sm">
+      <div class="flex-ec px-3">
+        <div class="">
+          <div v-if="toAmountUSD !== 0">${{ toAmountUSD }}</div>
+        </div>
+        <div class="flex-bc space-x-2 text-sm" v-if="false">
           <div>Balance:</div>
           <Loading :isLoading="isLoading" class="flex-bc">
             <div>{{ formatUnits(toTokenBalance, toToken.decimals, 4) || 0 }} {{ toToken.label }}</div>
