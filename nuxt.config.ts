@@ -23,13 +23,6 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true
   },
-  nitro: {
-    esbuild: {
-      options: {
-        target: 'esnext'
-      }
-    }
-  },
   // vite: {
   //   plugins: [
   //     ReactivityTransform()

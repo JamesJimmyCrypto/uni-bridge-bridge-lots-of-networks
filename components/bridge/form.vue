@@ -68,7 +68,7 @@ watchEffect(async () => {
     if (fromToken.address) {
       await doQueryAllowance();
     } else {
-      allowance = BigInt(Number.MAX_SAFE_INTEGER);
+      allowance = 10n ** 50n;
     }
   } else {
     toAmount = 0;
