@@ -15,11 +15,8 @@ const {
   fromTokenBalance,
   fromAmount,
   isLoadingFromTokenBalance,
+  swapDirection,
 } = $(uniConnectorStore());
-
-const swapDirection = () => {
-  // TOOD
-};
 
 const submitBtnTxt = $computed(() => {
   return "Switch network";
@@ -64,7 +61,7 @@ const doSubmit = async () => {
         <BridgeInputMenu :items="toTokenList" v-model="toToken" placeholder="Select token" />
       </div>
       <UInput class="flex-auto" type="number" size="xl" v-model="toAmount" placeholder="Please input token amount"></UInput>
-      <div class="flex-ec px-3">
+      <div class="flex-ec px-3" v-if="false">
         <div class="flex-bc space-x-2 text-sm">
           <div>Balance:</div>
           <Loading :isLoading="isLoading" class="flex-bc">

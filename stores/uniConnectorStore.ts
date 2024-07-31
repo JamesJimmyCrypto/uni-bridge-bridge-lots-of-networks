@@ -209,7 +209,20 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     fromAmount = formatUnits(fromTokenBalance, fromToken.decimals, fromToken.decimals);
   };
   let isLoadingFromTokenBalance = $ref(false);
+  watch($$(fromChain), () => {
+    // fromToken = {};
+    fromTokenBalance = 0
+    // fromAmount = 0
+  })
+
+
+  const isWrongNetwork = $computed(() => {
+    if (!fromChain) return false;
+    return fromChain.id !== currentChainId;
+  });
+
   watchEffect(async () => {
+    if (isWrongNetwork) return;
     if (isEmpty(fromToken)) return;
 
     fromTokenBalance = 0;
@@ -293,48 +306,49 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let toAmount = $ref(0);
   let toTokenBalance = $ref(0);
 
-  let isLoadingToTokenBalance = $ref(false);
-  watchEffect(async () => {
-    if (isEmpty(toToken)) return;
+  // TODO: after cross chain hackathon
+  // let isLoadingToTokenBalance = $ref(false);
+  // watchEffect(async () => {
+  //   if (isEmpty(toToken)) return;
 
-    toTokenBalance = 0;
-    isLoadingToTokenBalance = true;
-    if (!toToken.address) {
-      toTokenBalance = await walletClient.getBalance({
-        address: currentAccount,
-      });
-      isLoadingToTokenBalance = false;
-      return;
-    }
+  //   toTokenBalance = 0;
+  //   isLoadingToTokenBalance = true;
+  //   if (!toToken.address) {
+  //     toTokenBalance = await walletClient.getBalance({
+  //       address: currentAccount,
+  //     });
+  //     isLoadingToTokenBalance = false;
+  //     return;
+  //   }
 
-    toTokenBalance = await walletClient.readContract({
-      address: toToken.address,
-      functionName: "balanceOf",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "account",
-              type: "address",
-            },
-          ],
-          name: "balanceOf",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      args: [currentAccount],
-    });
-    isLoadingToTokenBalance = false;
-  });
+  //   toTokenBalance = await walletClient.readContract({
+  //     address: toToken.address,
+  //     functionName: "balanceOf",
+  //     abi: [
+  //       {
+  //         inputs: [
+  //           {
+  //             internalType: "address",
+  //             name: "account",
+  //             type: "address",
+  //           },
+  //         ],
+  //         name: "balanceOf",
+  //         outputs: [
+  //           {
+  //             internalType: "uint256",
+  //             name: "",
+  //             type: "uint256",
+  //           },
+  //         ],
+  //         stateMutability: "view",
+  //         type: "function",
+  //       },
+  //     ],
+  //     args: [currentAccount],
+  //   });
+  //   isLoadingToTokenBalance = false;
+  // });
 
   function listProviders() {
     if (providers.length > 0) return;
@@ -442,14 +456,16 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     }
   };
 
-  const isWrongNetwork = $computed(() => {
-    if (!fromChain) return false;
-    return fromChain.id !== currentChainId;
-  });
-
   let toAddress = $(useLocalStorage("uni-toAddress", "", {initOnMounted: true}));
 
+  const swapDirection = () => {
+    [fromToken, toToken] = [toToken, fromToken];
+    [fromChain, toChain] = [toChain, fromChain];
+    [fromAmount, toAmount] = [toAmount, fromAmount];
+  };
+  
   return $$({
+    swapDirection,
     toAddress,
     isLoading,
     currentChainId,
