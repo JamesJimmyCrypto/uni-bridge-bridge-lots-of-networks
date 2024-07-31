@@ -19,22 +19,22 @@ const {
   swapDirection,
 } = $(uniConnectorStore());
 
-let { toAmount } = $(uniConnectorStore());
+let { toAmount, isConnectorOpen } = $(uniConnectorStore());
 
 const { getQuote } = $(swapKitAPIStore());
 
 let toAmountUSD = $ref(0);
 
+const fromAmountInvalidate = $computed(() => {
+  return isNull(fromAmount) || fromAmount === "" || fromAmount === 0;
+});
+
+let isQuoteLoading = $ref(false);
 watchEffect(async () => {
-  const shouldIgnore =
-    isNull(fromAmount) ||
-    fromAmount === "" ||
-    fromAmount === 0 ||
-    isEmpty(fromToken) ||
-    isEmpty(toToken) ||
-    isEmpty(currentAccount) ||
-    isEmpty(toAddress);
+  const shouldIgnore = fromAmountInvalidate || isEmpty(fromToken) || isEmpty(toToken) || isEmpty(currentAccount) || isEmpty(toAddress);
   if (shouldIgnore) return;
+
+  isQuoteLoading = true;
 
   const rz = await getQuote(fromToken.identifier, toToken.identifier, fromAmount, currentAccount, toAddress);
   if (rz.quoteId) {
@@ -42,11 +42,37 @@ watchEffect(async () => {
     toAmount = route.expectedOutput;
     toAmountUSD = route.expectedOutputUSD;
   }
+  isQuoteLoading = false;
 });
+
 const submitBtnTxt = $computed(() => {
-  return "Switch network";
+  if (isEmpty(currentAccount)) return "Connect wallet";
+  if (isEmpty(fromToken)) return "Please select token in From area";
+  if (fromAmountInvalidate) return "Please input a validate token amount";
+  if (isEmpty(toAddress)) return "Please add address in To area";
+  if (isEmpty(toChain)) return "Please select chain in To area";
+  if (isEmpty(toToken)) return "Please select token in To area";
+  if (isQuoteLoading) return `Fetching a quote for ${fromChain.key}.${fromToken.label} to ${toChain.key}.${toToken.label}`;
+
+  return "Do Bridge";
+});
+const isDisabled = $computed(() => {
+  if (isQuoteLoading) return true;
+  if (isEmpty(fromToken)) return true;
+  if (fromAmountInvalidate) return true;
+  if (isEmpty(toAddress)) return true;
+  if (isEmpty(toChain)) return true;
+  if (isEmpty(toToken)) return true;
+
+  return false;
 });
 const doSubmit = async () => {
+  if (isDisabled || isQuoteLoading) return;
+
+  if (submitBtnTxt === "Connect wallet") {
+    isConnectorOpen = true;
+    return;
+  }
   console.log(`====> submitBtnTxt :`, submitBtnTxt);
 };
 </script>
@@ -98,6 +124,8 @@ const doSubmit = async () => {
         </div>
       </div>
     </div>
-    <UButton block size="xl" color="lime" @click="doSubmit">{{ submitBtnTxt }}</UButton>
+    <UButton :disabled="isDisabled" block :loading="isQuoteLoading" size="xl" :color="isDisabled ? 'red' : 'lime'" @click="doSubmit">{{
+      submitBtnTxt
+    }}</UButton>
   </div>
 </template>

@@ -295,12 +295,13 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   });
 
   // to
-  const toChainList = $computed(() => {
-    return fromChainList.filter((item) => {
-      if (fromChain?.key === item.key) return false;
-      return true;
-    });
-  });
+  const toChainList = [...allChainList];
+  // $computed(() => {
+  //   return fromChainList.filter((item) => {
+  //     if (fromChain?.key === item.key) return false;
+  //     return true;
+  //   });
+  // });
   let toChain = $ref();
   const toTokenList = $computed(() => {
     return toChain?.tokens || [];

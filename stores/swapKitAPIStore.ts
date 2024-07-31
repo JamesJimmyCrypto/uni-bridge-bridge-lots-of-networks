@@ -30,18 +30,19 @@ export const swapKitAPIStore = defineStore("swapKitAPIStore", () => {
   };
 
   const getQuote = async (sellAsset, buyAsset, sellAmount, senderAddress, recipientAddress) => {
-    const { data, status, error } =  $(await useGetRequest("https://api.thorswap.net/aggregator/tokens/quote", {
-        sellAsset,
-        buyAsset,
-        sellAmount,
-        senderAddress,
-        recipientAddress,
-    }, headers))
-    if (error && error.data) {
+    try {
+      const data =  await getRequest("https://api.thorswap.net/aggregator/tokens/quote", {
+          sellAsset,
+          buyAsset,
+          sellAmount,
+          senderAddress,
+          recipientAddress,
+      }, headers)
+      return data;
+    } catch (error) {
       addError(error?.data.message)
-      return {}
+      return {}  
     }
-    return data;
   };
 
   const getGasPrice = async (chainId) => {
