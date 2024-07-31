@@ -32,11 +32,11 @@ interface EIP1193Provider {
   request: (request: { method: string; params?: Array<unknown> }) => Promise<unknown>;
 }
 
-import arbitrumToken from "~/assets/tokenlists/arbitrum.json";
-import avalancheToken from "~/assets/tokenlists/avalanche.json";
-import bnbToken from "~/assets/tokenlists/bnb.json";
-import bscToken from "~/assets/tokenlists/bsc.json";
-import ethToken from "~/assets/tokenlists/eth.json";
+import arbitrumToken from "~/assets/tokenlists2/arbitrum.json";
+import avalancheToken from "~/assets/tokenlists2/avalanche.json";
+import bnbToken from "~/assets/tokenlists2/bnb.json";
+import bscToken from "~/assets/tokenlists2/bsc.json";
+import ethToken from "~/assets/tokenlists2/eth.json";
 import { acala, avalanche, arbitrum, dogechain, polygon, bsc, opBNB, mainnet } from "viem/chains";
 import { createWalletClient, custom, publicActions } from "viem";
 let allChainList = [
