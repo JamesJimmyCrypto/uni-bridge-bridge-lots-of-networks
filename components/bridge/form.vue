@@ -68,7 +68,7 @@ watchEffect(async () => {
     if (fromToken.address) {
       await doQueryAllowance();
     } else {
-      allowance = 10n ** 50n;
+      allowance = 1000000000000000000000000000000n;
     }
   } else {
     toAmount = 0;
