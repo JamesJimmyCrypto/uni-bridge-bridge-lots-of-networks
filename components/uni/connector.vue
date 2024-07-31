@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const {
-  isOpen,
+  isConnectorOpen,
   currentAccount,
   currentWallet,
   isWrongNetwork,
@@ -20,8 +20,8 @@ onMounted(() => {
 
 <template>
   <div id="uni-connector">
-    <UButton color="red" v-if="isWrongNetwork" block @click="forceSwitchChain(fromChain, currentWallet)">Switch network</UButton>
-    <UButton class="group" v-else-if="currentAccount" color="white" block @click="isOpen = true">
+    <UButton color="red" v-if="isWrongNetwork" block @click="forceSwitchChain(fromChain, currentWallet)"> Switch network </UButton>
+    <UButton class="group" v-else-if="currentAccount" color="white" block @click="isConnectorOpen = true">
       <div class="hidden group-hover:block">Change wallet</div>
       <div class="flex-bc space-x-1 group-hover:hidden">
         <div>
@@ -30,9 +30,9 @@ onMounted(() => {
         <Avatar v-bind="currentWallet" />
       </div>
     </UButton>
-    <UButton v-else label="Connect Wallet" :loading="isLoading" color="primary" @click="isOpen = true" />
+    <UButton v-else label="Connect Wallet" :loading="isLoading" color="primary" @click="isConnectorOpen = true" />
 
-    <UModal v-model="isOpen">
+    <UModal v-model="isConnectorOpen">
       <div class="p-6">
         <h2 class="font-bold text-center pb-6">{{ currentAccount ? "Change wallet" : "Connect wallet" }}</h2>
         <div class="flex space-x-2 justify-between items-center">

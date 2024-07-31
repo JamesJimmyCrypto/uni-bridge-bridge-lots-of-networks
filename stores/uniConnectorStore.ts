@@ -182,7 +182,8 @@ const allWalletList = [
 export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   const { addError, addSuccess } = $(notificationStore());
   let isLoading = $ref(false);
-  let isOpen = $ref(true);
+  let isConnectorOpen = $ref(false);
+  let isAddressBookOpen = $ref(false);
   let isConnected = $ref(false);
   let address = $ref("");
   let providers = $ref([]);
@@ -190,7 +191,10 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   let currentAccount = $ref("");
   let currentWallet = $ref("");
   let walletClient = $ref();
+  let currentRdns = $(useLocalStorage('uni-connector-current-rdns', ''))
+  let fromChainId = $(useLocalStorage('uni-connector-from-chain-id', 0))
 
+  // from
   const fromChainList = [...allChainList];
   let fromChain = $ref();
   let fromWalletApp = $ref();
@@ -199,22 +203,22 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
   });
   let fromToken = $ref("");
   let fromTokenBalance = $ref(0);
-  let fromAmount = $ref(0)
+  let fromAmount = $ref(0);
 
   const setMaxAmount = () => {
     fromAmount = formatUnits(fromTokenBalance, fromToken.decimals, fromToken.decimals);
   };
-
+  let isLoadingFromTokenBalance = $ref(false);
   watchEffect(async () => {
     if (!fromToken) return;
 
     fromTokenBalance = 0;
-    isLoading = true;
+    isLoadingFromTokenBalance = true;
     if (!fromToken.address) {
       fromTokenBalance = await walletClient.getBalance({
         address: currentAccount,
       });
-      isLoading = false;
+      isLoadingFromTokenBalance = false;
       return;
     }
 
@@ -244,8 +248,7 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
       ],
       args: [currentAccount],
     });
-    console.log(`====> fromTokenBalance :`, fromTokenBalance);
-    isLoading = false;
+    isLoadingFromTokenBalance = false;
   });
 
   const fromWalletAppList = $computed(() => {
@@ -275,13 +278,76 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     return useSortBy(walletAppMap, "id");
   });
 
+  // to
+  const toChainList = $computed(() => {
+    return fromChainList.filter((item) => {
+      if (fromChain?.key === item.key) return false;
+      return true;
+    });
+  });
+  let toChain = $ref();
+  const toTokenList = $computed(() => {
+    return toChain?.tokens || [];
+  });
+  let toToken = $ref("");
+  let toAmount = $ref(0);
+  let toTokenBalance = $ref(0);
+
+  let isLoadingToTokenBalance = $ref(false);
+  watchEffect(async () => {
+    if (!toToken) return;
+
+    toTokenBalance = 0;
+    isLoadingToTokenBalance = true;
+    if (!toToken.address) {
+      toTokenBalance = await walletClient.getBalance({
+        address: currentAccount,
+      });
+      isLoadingToTokenBalance = false;
+      return;
+    }
+
+    toTokenBalance = await walletClient.readContract({
+      address: toToken.address,
+      functionName: "balanceOf",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "balanceOf",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      args: [currentAccount],
+    });
+    isLoadingToTokenBalance = false;
+  });
+
   function listProviders() {
     if (providers.length > 0) return;
     function onAnnouncement(event: EIP6963AnnounceProviderEvent) {
-      // console.log(`====> event.detail :`, event.detail);
       if (providers.map((p) => p.info.uuid).includes(event.detail.info.uuid)) return;
 
       providers = [...providers, event.detail];
+      const { rdns } = event.detail.info;
+      
+      if (currentRdns === rdns && fromChainId !== 0) {
+        fromChain = fromChainList.find((item) => item.id === fromChainId);
+        connectOrJump(currentRdns)
+      }
     }
 
     window.addEventListener("eip6963:announceProvider", onAnnouncement);
@@ -345,22 +411,29 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
       }
       currentAccount = accounts[0];
       currentWallet = wallet;
-      isOpen = false;
+      isConnectorOpen = false;
       walletClient = createWalletClient({
         account: currentAccount,
         chain: fromChain,
         transport: custom(wallet.provider),
       }).extend(publicActions);
+      return true
     } catch (error) {
       // TODO: show error message to user
       console.error("Failed to connect to provider:", error);
+      return false
     }
   };
 
   const connectOrJump = async (rdns) => {
     const walletAppMap = useKeyBy(fromWalletAppList, "rdns");
     if (walletAppMap[rdns]?.isInstalled) {
-      return connectWithProvider(walletAppMap[rdns]);
+      const rz = connectWithProvider(walletAppMap[rdns]);
+      if (rz) {
+        currentRdns = rdns
+        fromChainId = fromChain.id
+      }
+      return
     }
     // do jump
     const url = walletAppMap[rdns].url;
@@ -383,14 +456,22 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
     isWrongNetwork,
     currentAccount,
     currentWallet,
+    toTokenList,
+    toToken,
     listProviders,
     connectOrJump,
     providers,
     isConnected,
     address,
-    isOpen,
+    isConnectorOpen,
+    isAddressBookOpen,
     fromChainList,
+    toChain,
+    toChainList,
     fromWalletAppList,
+    toAmount,
+    isLoadingFromTokenBalance,
+    toTokenBalance,
     fromChain,
     fromWalletApp,
     fromTokenList,
