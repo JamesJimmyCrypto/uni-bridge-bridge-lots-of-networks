@@ -465,12 +465,12 @@ export const uniConnectorStore = defineStore("uniConnectorStore", () => {
         } catch (errMsg) {
           // Handle "add" error.
           console.log(`====> errMsg :`, errMsg);
-          addError(errMsg.message);
+          addError(errMsg?.message);
           return false;
         }
       }
       console.log(`====> switchError :`, switchError);
-      addError(switchError.message);
+      addError(switchError?.message);
     }
     return false;
   };

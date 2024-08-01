@@ -132,7 +132,7 @@ const doApproveAllowance = async () => {
     }, 4000);
   } catch (err) {
     addError("Error", err);
-    console.log(`====> err :`, err.message);
+    console.log(`====> err :`, err?.message);
   }
 
   isApprovalLoading = false;
@@ -164,7 +164,7 @@ const doSubmit = async () => {
     addSuccess("Do Bridge Success");
   } catch (err) {
     console.log(`====> err :`, err);
-    addError(err.message);
+    addError(err?.message);
   }
   isBridging = false;
   setTimeout(async () => {
