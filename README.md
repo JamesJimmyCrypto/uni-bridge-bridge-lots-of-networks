@@ -80,7 +80,7 @@ The bridge module uses the SwapKitSDK to handle cross-chain liquidity aggregatio
 
 The bridge module is built with the following features:
 
-### Wallet connect
+### Wallet connect [Source code](https://github.com/HelloRWA/uni-bridge/blob/main/components/uni/connector.vue)
 
 * [x] connect wallet btn
 * [x] connect wallet modal
@@ -93,7 +93,7 @@ The bridge module is built with the following features:
 
 ![Wallet connect](./screenshot/1.3.chains-list.png)
 
-### 2. Input "From" fields
+### 2. Input "From" fields [Source code](https://github.com/HelloRWA/uni-bridge/blob/main/components/bridge/form.vue)
 
 * [x] select source chain with keywords search
 * [x] select token with keywords search
@@ -105,7 +105,7 @@ The bridge module is built with the following features:
 
 ### 3. Input "To" fields
 
-* [x] Address book
+* [x] Address book [Source code](https://github.com/HelloRWA/uni-bridge/blob/main/components/uni/addressBook.vue)
   * [x] add address
   * [x] create new address book
   * [x] address book provide multiple address to store
@@ -119,7 +119,7 @@ The bridge module is built with the following features:
 
 ![Input "To" fields](./screenshot/4.1.auto-get-quote.png)
 
-### 4. Get quote and help user trigger transaction for bridge
+### 4. Get quote and help user trigger transaction for bridge [Source code](https://github.com/HelloRWA/uni-bridge/blob/main/components/bridge/form.vue#L37-L175)
 
 * [x] auto get quote and provide best route from DEX aggregators
   * [x] from thorswap via SwapKitSDK API
