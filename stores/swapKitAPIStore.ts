@@ -43,7 +43,8 @@ export const swapKitAPIStore = defineStore("swapKitAPIStore", () => {
       );
       return data;
     } catch (error) {
-      return {error: error?.data.message}
+      console.log(`====> error :`, error)
+      return {error: error?.data?.message}
     }
   };
 
