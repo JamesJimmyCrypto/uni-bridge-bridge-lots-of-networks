@@ -4,21 +4,106 @@
 
 ## Intro
 
-UNI Bridge is a decentralized bridge for connecting different blockchains. It allows users to transfer assets between all blockchains(currently support ETH, AVAX, THOR, BTC, LTC, BNB, BSC, BCH, GAIA, DOGE, more chains support are coming soon) without having to use any centralized. It includes stake, bridge, trade modules(Currently only the bridge module is available).
+UNI Bridge is a decentralized bridge for connecting different blockchains.
+
+It includes stake, bridge, trade modules(Currently only the bridge module is available).
 
 Our mission is to provide a decentralized bridge for connecting different blockchains and take over the centralized exchange platforms.
 
+
+It allows users to transfer assets between all blockchains without having to use any centralized, currently support:
+
+* Bitcoin
+* Ethereum Mainnet
+* BNB Smart Chain (BEP20)
+* BNB Beacon Chain (BEP2)
+* Avalanche C-Chain
+* Cosmos (ATOM)
+* THORChain
+* Dogecoin
+* Bitcoin Cash
+* Litecoin
+
+More chains ( Arweave, AO, Polygon, Solana) support are coming soon.
+
 ## Quick Link
 
-- [Video demo](#)
-- [Online product link](https://ub.rwa-wallet.com/bridge)
-- [Source code](https://github.com/HelloRWA/uni-bridge)
-- [A bscscan log of the example of using Swapkit to make a swap on BSC chain](https://bscscan.com/tx/0x739059b894d0d31e9f05d87542431b39f681c5627e5a6a7120f9164bc3374fbe)
+* [Video demo](#) (WIP)
+* [Online product link](https://ub.rwa-wallet.com/bridge)
+* [Source code](https://github.com/HelloRWA/uni-bridge)
+* [A bscscan log of the example of using Swapkit to make a swap on BSC chain](https://bscscan.com/tx/0x739059b894d0d31e9f05d87542431b39f681c5627e5a6a7120f9164bc3374fbe)
+
+## How it works?
+
+The bridge module leverages SwapkitSDK API to aggregate liquidity from various decentralized exchanges across different blockchains. This modules aims to provide users with the best possible trading rates, enhance liquidity, and simplify the cross-chain trading experience.
+
+## Features
+
+### 1. Multi-chain Liquidity Aggregation
+
+* Aggregates liquidity from various decentralized exchanges across multiple blockchains.
+  * Currently supported DEX aggregation routes: Uniswap V2 + V3, SushiSwap, 1Inch (ParaSwap, GMX, Curve), 0x Protocol (Matcha), Kyber, Pangolin, TraderJoe, WOOFi and PancakeSwap.
+  * Currently supported Chains: Bitcoin, Ethereum Mainnet, BNB Smart Chain (BEP20), BNB Beacon Chain (BEP2), Avalanche C-Chain, Cosmos (ATOM), THORChain, Dogecoin, Bitcoin Cash, Litecoin.
+  * Coming soon: Arweave, AO, Polygon, Solana
+* Utilizes SwipKitSDK API to facilitate cross-chain swaps and ensure optimal trading rates.
+
+### 2. Optimize trading experience
+
+* Provide users with real-time quotes and trading opportunities.
+* Minimize slippage and ensure efficient trade execution.
+* [WIP] Aggregates more platforms to provide users with the best possible trading rates.
+
+### 3. User-friendly interface
+
+* Intuitive interface for seamless bridge and liquidity management.
+* Greate UX and UI design by the Nuxt UI framework.
+
+### 4. [WIP] Users can earn affiliate fees for share bridge to earn
+
+Our platform will allows KoLs to have invite code and links to track their referral earnings on their social platform.
+
+## SwapkitSDK Integration
+
+The bridge module uses the SwapKitSDK to handle cross-chain liquidity aggregation and bridge.
+
+![How bridge work](./screenshot/how-bridge-work.png)
+
+TODO: code explain for the diagram above.
+
+## What we build during the hackathon?
+
+TODO: list the UI/UX features and screenshots here
+
+* [x] A bridge module to aggregate liquidity from various decentralized exchanges across multiple blockchains.
+* [x] A user-friendly interface for seamless bridge and liquidity management.
+* [x] A simple and intuitive interface for seamless bridge and liquidity management.
+* [x] Uni Connect modules
+  * [x] connect wallet btn
+  * [x] connect wallet modal
+    * [x] user can see a list of supported chains
+    * [x] user can select a chain
+      * [x] list corresponding wallet app (filter by the tag of the chain)
+      * [x] auto detect all the supported wallet app is installed or not
+        * [x] if not installed: user can click the "Click to install" btn to install the missing wallet app
+        * [x] if installed: user can click wallet btn to connect with the wallet app
+
+## What's next?
+
+* [ ] Stake module
+* [ ] Trade module
+* [ ] More chains support
+* [ ] More wallet support
+* [ ] Integrated into [RWA-Wallet.com chrome extention](https://chromewebstore.google.com/detail/rwa-wallet/fhmmkjofdcpnoklcbcnbjjhigobceikb)
 
 
-```bash [Terminal]
-npx nuxi init -t github:nuxt-ui-pro/dashboard
-```
+## Technical Stack
+
+* **Frontend**: Vue.js, Nuxt.js, NuxtUI, NuxtUI-Pro, Tailwindcss
+* **Backend**: Supabase.js, Node.js, Nitro.js(build-in Nuxt.js)
+* **Blockchain** Integration: SwapKitSDK, [Layer SaaS](https://www.npmjs.com/package/@web3-fullstack/layer-saas)
+* **Database**: PostgreSQL (Supabase.js build-in)
+* **Deployment**: Vercel
+
 
 ## Setup
 
@@ -95,16 +180,3 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 ## Renovate integration
 
 Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
-
-
-## Features
-
-- [ ] Uni Connect modules
-  - [ ] connect wallet btn
-  - [ ] connect wallet modal
-    - [ ] user can see a list of supported chains
-    - [ ] user can select a chain
-      - [ ] list corresponding wallet app (filter by the tag of the chain)
-      - [ ] auto detect all the supported wallet app is installed or not
-        - [ ] if not installed: user can click the "Click to install" btn to install the missing wallet app
-        - [ ] if installed: user can click wallet btn to connect with the wallet app
