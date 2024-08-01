@@ -1,12 +1,8 @@
 ![nuxt-ui-dashboard-social-card](./screenshot/bridge.png)
 
-# Nuxt UI Pro - Dashboard template
+# UNI Bridge for All BlockChains
 
-[![Nuxt UI Pro](https://img.shields.io/badge/Made%20with-Nuxt%20UI%20Pro-00DC82?logo=nuxt.js&labelColor=020420)](https://ui.nuxt.com/pro)
-
-- [Live demo](https://dashboard-template.nuxt.dev/)
-- [Play on Stackblitz](https://stackblitz.com/github/nuxt-ui-pro/dashboard)
-- [Documentation](https://ui.nuxt.com/pro/getting-started)
+- [Live demo](https://ub.rwa-wallet.com/)
 
 ## Quick Start
 
