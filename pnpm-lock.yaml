@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.2.230
     version: 2.2.230
   '@web3-fullstack/layer-saas':
-    specifier: 0.0.14
-    version: 0.0.14(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@1.0.0)(@vue/compiler-core@3.4.34)(node-fetch@3.3.2)(nuxt@3.11.1)(postcss@8.4.40)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.34)(webpack@5.91.0)
+    specifier: 0.0.15
+    version: 0.0.15(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@1.0.0)(@vue/compiler-core@3.4.34)(node-fetch@3.3.2)(nuxt@3.11.1)(postcss@8.4.40)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.34)(webpack@5.91.0)
   date-fns:
     specifier: ^3.6.0
     version: 3.6.0
@@ -7247,8 +7247,8 @@ packages:
       web-streams-polyfill: 3.3.3
     dev: false
 
-  /@web3-fullstack/layer-saas@0.0.14(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@1.0.0)(@vue/compiler-core@3.4.34)(node-fetch@3.3.2)(nuxt@3.11.1)(postcss@8.4.40)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.34)(webpack@5.91.0):
-    resolution: {integrity: sha512-pEjvqN6PzcExw72YJaxP9/o1gAzKBDtEs97gN+EYqHuaxtBK8PqWnU6AA8Bhv5c6z/ZED9fLxKyH6Nsk/stA9A==}
+  /@web3-fullstack/layer-saas@0.0.15(@lezer/common@1.2.1)(@nuxt/devtools@1.3.7)(@popperjs/core@2.11.8)(@vue-macros/reactivity-transform@1.0.0)(@vue/compiler-core@3.4.34)(node-fetch@3.3.2)(nuxt@3.11.1)(postcss@8.4.40)(react-native@0.74.3)(react@18.3.1)(vite@5.2.7)(vue@3.4.34)(webpack@5.91.0):
+    resolution: {integrity: sha512-QYNM7BAxtkDUn36GfHj/pGAWzIIGAgWKBtDYGZo50uvkdJh1tC0VJ0AkWEt2RCFh0Qe+/XA8TIwEK2YQ6Dn7lA==}
     dependencies:
       '@dicebear/collection': 9.0.1(@dicebear/core@9.0.1)
       '@dicebear/core': 9.0.1
