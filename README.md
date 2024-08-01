@@ -1,7 +1,6 @@
 # UNI Bridge for All BlockChains
 
-![Bridge Screenshot](./screenshot/bridge.png)
-
+![Bridge Screenshot](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/bridge.png)
 
 ## Intro
 
@@ -12,7 +11,6 @@ It includes stake, bridge, trade modules.
 *Currently only the bridge module is available, which is built during the hackathon.*
 
 Our mission is to aggregate as much decentralized bridges for connecting different blockchains and take over the centralized exchange platforms.
-
 
 It allows users to transfer assets between all blockchains without having to use any centralized, currently support:
 
@@ -31,9 +29,9 @@ More chains ( Arweave, AO, Polygon, Solana) support are coming soon.
 
 ## Quick Link
 
-* [Video demo](#) (WIP)
+* [Video demo](https://youtu.be/JfENMjcj36c)
 * [Online product link](https://ub.rwa-wallet.com/bridge)
-* [All product screenshots](./screenshot)
+* [All product screenshots](https://github.com/HelloRWA/uni-bridge/tree/main/screenshot)
 * [Source code](https://github.com/HelloRWA/uni-bridge)
 * [A bscscan log of the example of using Swapkit to make a swap on BSC chain](https://bscscan.com/tx/0x739059b894d0d31e9f05d87542431b39f681c5627e5a6a7120f9164bc3374fbe)
 
@@ -43,7 +41,7 @@ The bridge module leverages SwapkitSDK API to aggregate liquidity from various d
 
 This modules aims to provide users with the best possible trading rates, enhance liquidity, and simplify the cross-chain trading experience.
 
-![How bridge work](./screenshot/how-bridge-work.png)
+![How bridge work](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/how-bridge-work.png)
 
 ## Features
 
@@ -76,7 +74,7 @@ The SwapKitSDK is a library that allows developers to easily integrate decentral
 
 The bridge module uses the SwapKitSDK to handle cross-chain liquidity aggregation and bridge.
 
-![Bridge Previews](./screenshot/bridge-previews.png)
+![Bridge Previews](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/bridge-previews.png)
 
 The bridge module is built with the following features:
 
@@ -91,7 +89,7 @@ The bridge module is built with the following features:
 * [x] if not installed: user can click the "Click to install" btn to install the missing wallet app
 * [x] if installed: user can click wallet btn to connect with the wallet app
 
-![Wallet connect](./screenshot/1.3.chains-list.png)
+![Wallet connect](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/1.3.chains-list.png)
 
 ### 2. Input "From" fields [Source code](https://github.com/HelloRWA/uni-bridge/blob/main/components/bridge/form.vue)
 
@@ -101,7 +99,7 @@ The bridge module is built with the following features:
 * [x]  query user wallet's balance of current selected token
 * [x]  "Max" btn to help user input all balance
 
-![Input "From" fields](./screenshot/2.2.select-source-token.png)
+![Input "From" fields](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/2.2.select-source-token.png)
 
 ### 3. Input "To" fields
 
@@ -115,16 +113,16 @@ The bridge module is built with the following features:
 * [x]  select token
 * [x]  Input token amount for bridge
 
-![Address book](./screenshot/3.2.pick-stored-address.png)
+![Address book](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/3.2.pick-stored-address.png)
 
-![Input "To" fields](./screenshot/4.1.auto-get-quote.png)
+![Input "To" fields](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/4.1.auto-get-quote.png)
 
 ### 4. Get quote and help user trigger transaction for bridge [Source code](https://github.com/HelloRWA/uni-bridge/blob/main/components/bridge/form.vue#L37-L175)
 
 * [x] auto get quote and provide best route from DEX aggregators
   * [x] from thorswap via SwapKitSDK API
 
-![Get quote and help user trigger transaction for bridge](./screenshot/4.5.popup-wallet-app.png)
+![Get quote and help user trigger transaction for bridge](https://github.com/HelloRWA/uni-bridge/raw/main/screenshot/4.5.popup-wallet-app.png)
 
 ## What's next?
 
