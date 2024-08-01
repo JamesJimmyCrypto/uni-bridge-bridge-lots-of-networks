@@ -35,6 +35,8 @@ More chains ( Arweave, AO, Polygon, Solana) support are coming soon.
 * [Source code](https://github.com/HelloRWA/uni-bridge)
 * [A bscscan log of the example of using Swapkit to make a swap on BSC chain](https://bscscan.com/tx/0x739059b894d0d31e9f05d87542431b39f681c5627e5a6a7120f9164bc3374fbe)
 
+![Video demo](https://youtu.be/JfENMjcj36c)
+
 ## How it works?
 
 The bridge module leverages SwapkitSDK API to aggregate liquidity from various decentralized exchanges across different blockchains. 
