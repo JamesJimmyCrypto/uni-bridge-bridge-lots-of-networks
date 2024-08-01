@@ -56,7 +56,7 @@ The bridge module leverages SwapkitSDK API to aggregate liquidity from various d
 ### 3. User-friendly interface
 
 * Intuitive interface for seamless bridge and liquidity management.
-* Greate UX and UI design by the Nuxt UI framework.
+* Good UX and UI design by the Nuxt UI framework.
 
 ### 4. [WIP] Users can earn affiliate fees for share bridge to earn
 
