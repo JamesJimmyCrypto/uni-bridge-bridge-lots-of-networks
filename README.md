@@ -1,4 +1,4 @@
-![nuxt-ui-dashboard-social-card](https://github.com/nuxt-ui-pro/dashboard/assets/739984/f785284b-7db2-4732-af0e-2cb3c0bd7ca2)
+![nuxt-ui-dashboard-social-card](./screenshot/bridge.png)
 
 # Nuxt UI Pro - Dashboard template
 
