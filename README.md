@@ -30,12 +30,15 @@ More chains ( Arweave, AO, Polygon, Solana) support are coming soon.
 
 * [Video demo](#) (WIP)
 * [Online product link](https://ub.rwa-wallet.com/bridge)
+* [All product screenshots](./screenshot)
 * [Source code](https://github.com/HelloRWA/uni-bridge)
 * [A bscscan log of the example of using Swapkit to make a swap on BSC chain](https://bscscan.com/tx/0x739059b894d0d31e9f05d87542431b39f681c5627e5a6a7120f9164bc3374fbe)
 
 ## How it works?
 
 The bridge module leverages SwapkitSDK API to aggregate liquidity from various decentralized exchanges across different blockchains. This modules aims to provide users with the best possible trading rates, enhance liquidity, and simplify the cross-chain trading experience.
+
+![How bridge work](./screenshot/how-bridge-work.png)
 
 ## Features
 
@@ -66,11 +69,10 @@ Our platform will allows KoLs to have invite code and links to track their refer
 
 The bridge module uses the SwapKitSDK to handle cross-chain liquidity aggregation and bridge.
 
-![How bridge work](./screenshot/how-bridge-work.png)
-
-TODO: code explain for the diagram above.
-
 ## What we build during the hackathon?
+
+![Bridge Previews](./screenshot/bridge-previews.png)
+
 
 TODO: list the UI/UX features and screenshots here
 
