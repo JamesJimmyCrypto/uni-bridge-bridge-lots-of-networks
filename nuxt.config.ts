@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   //   '@pinia/nuxt'
   // ],
   content: {
-    documentDriven: true
+    documentDriven: false
   },
   nitro: {
     esbuild: {
