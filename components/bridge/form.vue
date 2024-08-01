@@ -158,6 +158,7 @@ const doSubmit = async () => {
       hash,
     });
     if (tx.status !== "success") {
+      console.log(`====> tx :`, tx);
       addError("Do Bridge Error", tx);
       throw new Error(tx);
     }

@@ -3,7 +3,7 @@ definePageMeta({
   colorMode: "dark",
 });
 
-const { data: page } = await useAsyncData("home", () => queryContent("/home").findOne());
+const { data: page } = await useAsyncData("home", () => queryContent("/").where({ title: "UNI Bridge for All BlockChains" }).findOne());
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: "Page not found", fatal: true });
 }
