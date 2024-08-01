@@ -25,6 +25,10 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.3.7",
+    "fast-xml-parser": ">=4.4.1",
+    "ws": ">=8.17.1",
+    "braces": ">=3.0.3",
+    "undici": ">=5.28.4",
     "@vue-macros/reactivity-transform": "^1.0.0",
     "stylus": "^0.63.0"
   }
