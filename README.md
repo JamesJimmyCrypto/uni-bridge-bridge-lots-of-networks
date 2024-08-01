@@ -1,6 +1,7 @@
+# UNI Bridge for All BlockChains
+
 ![Bridge Screenshot](./screenshot/bridge.png)
 
-# UNI Bridge for All BlockChains
 
 ## Intro
 
@@ -8,7 +9,7 @@ UNI Bridge is a decentralized bridge for connecting different blockchains.
 
 It includes stake, bridge, trade modules(Currently only the bridge module is available).
 
-Our mission is to provide a decentralized bridge for connecting different blockchains and take over the centralized exchange platforms.
+Our mission is to aggregate as much decentralized bridges for connecting different blockchains and take over the centralized exchange platforms.
 
 
 It allows users to transfer assets between all blockchains without having to use any centralized, currently support:
@@ -36,7 +37,9 @@ More chains ( Arweave, AO, Polygon, Solana) support are coming soon.
 
 ## How it works?
 
-The bridge module leverages SwapkitSDK API to aggregate liquidity from various decentralized exchanges across different blockchains. This modules aims to provide users with the best possible trading rates, enhance liquidity, and simplify the cross-chain trading experience.
+The bridge module leverages SwapkitSDK API to aggregate liquidity from various decentralized exchanges across different blockchains. 
+
+This modules aims to provide users with the best possible trading rates, enhance liquidity, and simplify the cross-chain trading experience.
 
 ![How bridge work](./screenshot/how-bridge-work.png)
 
@@ -65,29 +68,61 @@ The bridge module leverages SwapkitSDK API to aggregate liquidity from various d
 
 Our platform will allows KoLs to have invite code and links to track their referral earnings on their social platform.
 
-## SwapkitSDK Integration
+## What we build during the hackathon and how we built it with SwapKitSDK?
+
+The SwapKitSDK is a library that allows developers to easily integrate decentralized exchanges into their applications. It provides a simple API for aggregating liquidity from various decentralized exchanges across multiple block
 
 The bridge module uses the SwapKitSDK to handle cross-chain liquidity aggregation and bridge.
 
-## What we build during the hackathon?
-
 ![Bridge Previews](./screenshot/bridge-previews.png)
 
+The bridge module is built with the following features:
 
-TODO: list the UI/UX features and screenshots here
+### Wallet connect
 
-* [x] A bridge module to aggregate liquidity from various decentralized exchanges across multiple blockchains.
-* [x] A user-friendly interface for seamless bridge and liquidity management.
-* [x] A simple and intuitive interface for seamless bridge and liquidity management.
-* [x] Uni Connect modules
-  * [x] connect wallet btn
-  * [x] connect wallet modal
-    * [x] user can see a list of supported chains
-    * [x] user can select a chain
-      * [x] list corresponding wallet app (filter by the tag of the chain)
-      * [x] auto detect all the supported wallet app is installed or not
-        * [x] if not installed: user can click the "Click to install" btn to install the missing wallet app
-        * [x] if installed: user can click wallet btn to connect with the wallet app
+* [x] connect wallet btn
+* [x] connect wallet modal
+* [x] user can see a list of supported chains
+* [x] user can select a chain
+* [x] list corresponding wallet app (filter by the tag of the chain)
+* [x] auto detect all the supported wallet app is installed or not
+* [x] if not installed: user can click the "Click to install" btn to install the missing wallet app
+* [x] if installed: user can click wallet btn to connect with the wallet app
+
+![Wallet connect](./screenshot/1.3.chains-list.png)
+
+### 2. Input "From" fields
+
+* [x] select source chain with keywords search
+* [x] select token with keywords search
+* [x] Input token amount for bridge
+* [x]  query user wallet's balance of current selected token
+* [x]  "Max" btn to help user input all balance
+
+![Input "From" fields](./screenshot/2.2.select-source-token.png)
+
+### 3. Input "To" fields
+
+* [x] Address book
+  * [x] add address
+  * [x] create new address book
+  * [x] address book provide multiple address to store
+  * [x] delete address book
+  * [x] change address
+* [x]  select chain
+* [x]  select token
+* [x]  Input token amount for bridge
+
+![Address book](./screenshot/3.2.pick-stored-address.png)
+
+![Input "To" fields](./screenshot/4.1.auto-get-quote.png)
+
+### 4. Get quote and help user trigger transaction for bridge
+
+* [x] auto get quote and provide best route from DEX aggregators
+  * [x] from thorswap via SwapKitSDK API
+
+![Get quote and help user trigger transaction for bridge](./screenshot/4.5.popup-wallet-app.png)
 
 ## What's next?
 
@@ -97,7 +132,6 @@ TODO: list the UI/UX features and screenshots here
 * [ ] More wallet support
 * [ ] Integrated into [RWA-Wallet.com chrome extention](https://chromewebstore.google.com/detail/rwa-wallet/fhmmkjofdcpnoklcbcnbjjhigobceikb)
 
-
 ## Technical Stack
 
 * **Frontend**: Vue.js, Nuxt.js, NuxtUI, NuxtUI-Pro, Tailwindcss
@@ -105,7 +139,6 @@ TODO: list the UI/UX features and screenshots here
 * **Blockchain** Integration: SwapKitSDK, [Layer SaaS](https://www.npmjs.com/package/@web3-fullstack/layer-saas)
 * **Database**: PostgreSQL (Supabase.js build-in)
 * **Deployment**: Vercel
-
 
 ## Setup
 
