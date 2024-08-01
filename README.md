@@ -1,10 +1,20 @@
-![nuxt-ui-dashboard-social-card](./screenshot/bridge.png)
+![Bridge Screenshot](./screenshot/bridge.png)
 
 # UNI Bridge for All BlockChains
 
-- [Live demo](https://ub.rwa-wallet.com/)
+## Intro
 
-## Quick Start
+UNI Bridge is a decentralized bridge for connecting different blockchains. It allows users to transfer assets between all blockchains(currently support ETH, AVAX, THOR, BTC, LTC, BNB, BSC, BCH, GAIA, DOGE, more chains support are coming soon) without having to use any centralized. It includes stake, bridge, trade modules(Currently only the bridge module is available).
+
+Our mission is to provide a decentralized bridge for connecting different blockchains and take over the centralized exchange platforms.
+
+## Quick Link
+
+- [Video demo](#)
+- [Online product link](https://ub.rwa-wallet.com/bridge)
+- [Source code](https://github.com/HelloRWA/uni-bridge)
+- [A bscscan log of the example of using Swapkit to make a swap on BSC chain](https://bscscan.com/tx/0x739059b894d0d31e9f05d87542431b39f681c5627e5a6a7120f9164bc3374fbe)
+
 
 ```bash [Terminal]
 npx nuxi init -t github:nuxt-ui-pro/dashboard
